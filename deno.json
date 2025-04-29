@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "@hono/hono": "jsr:@hono/hono@^4.7.8",
+    "/": "./",
+    "./": "./",
+    "@numio/bigmath": "jsr:@numio/bigmath@^2.1.3"
+  },
+  "tasks": {
+    "dev": "deno task dev:api & deno task dev:vite",
+    "dev:api": "deno -A api/main.ts",
+    "dev:vite": "deno -A npm:vite"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "deno.ns"]
+  },
+  "lint": {
+    "rules": {
+      "include": ["no-debugger", "no-console"]
+    }
+  }
+}
