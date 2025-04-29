@@ -1,0 +1,18 @@
+[
+  {
+    "type": "add",
+    "description": "add"
+  },
+  {
+    "type": "sub",
+    "description": "subtract"
+  },
+  {
+    "type": "div",
+    "description": "divide"
+  },
+  {
+    "type": "mul",
+    "description": "multiply"
+  }
+]
