@@ -2,8 +2,7 @@
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.7.8",
     "/": "./",
-    "./": "./",
-    "@numio/bigmath": "jsr:@numio/bigmath@^2.1.3"
+    "./": "./src"
   },
   "tasks": {
     "dev": "deno task dev:api & deno task dev:vite",
