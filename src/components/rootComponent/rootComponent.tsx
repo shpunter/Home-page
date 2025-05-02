@@ -8,6 +8,7 @@ const RootComponent = () => {
     <div className={css.main}>
       <Menu>
         <Link to="/">Home</Link>
+        <Link to="/install">Installation</Link>
         <Link to="/add">Addition</Link>
         <Link to="/sub">Subtraction</Link>
         <Link to="/div">Division</Link>

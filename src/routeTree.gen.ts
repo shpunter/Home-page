@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as SubImport } from './routes/sub'
 import { Route as MulImport } from './routes/mul'
+import { Route as InstallImport } from './routes/install'
 import { Route as DivImport } from './routes/div'
 import { Route as AddImport } from './routes/add'
 import { Route as IndexImport } from './routes/index'
@@ -28,6 +29,12 @@ const SubRoute = SubImport.update({
 const MulRoute = MulImport.update({
   id: '/mul',
   path: '/mul',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const InstallRoute = InstallImport.update({
+  id: '/install',
+  path: '/install',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,6 +81,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DivImport
       parentRoute: typeof rootRoute
     }
+    '/install': {
+      id: '/install'
+      path: '/install'
+      fullPath: '/install'
+      preLoaderRoute: typeof InstallImport
+      parentRoute: typeof rootRoute
+    }
     '/mul': {
       id: '/mul'
       path: '/mul'
@@ -97,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
   '/div': typeof DivRoute
+  '/install': typeof InstallRoute
   '/mul': typeof MulRoute
   '/sub': typeof SubRoute
 }
@@ -105,6 +120,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
   '/div': typeof DivRoute
+  '/install': typeof InstallRoute
   '/mul': typeof MulRoute
   '/sub': typeof SubRoute
 }
@@ -114,16 +130,17 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
   '/div': typeof DivRoute
+  '/install': typeof InstallRoute
   '/mul': typeof MulRoute
   '/sub': typeof SubRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/add' | '/div' | '/mul' | '/sub'
+  fullPaths: '/' | '/add' | '/div' | '/install' | '/mul' | '/sub'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/add' | '/div' | '/mul' | '/sub'
-  id: '__root__' | '/' | '/add' | '/div' | '/mul' | '/sub'
+  to: '/' | '/add' | '/div' | '/install' | '/mul' | '/sub'
+  id: '__root__' | '/' | '/add' | '/div' | '/install' | '/mul' | '/sub'
   fileRoutesById: FileRoutesById
 }
 
@@ -131,6 +148,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddRoute: typeof AddRoute
   DivRoute: typeof DivRoute
+  InstallRoute: typeof InstallRoute
   MulRoute: typeof MulRoute
   SubRoute: typeof SubRoute
 }
@@ -139,6 +157,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddRoute: AddRoute,
   DivRoute: DivRoute,
+  InstallRoute: InstallRoute,
   MulRoute: MulRoute,
   SubRoute: SubRoute,
 }
@@ -156,6 +175,7 @@ export const routeTree = rootRoute
         "/",
         "/add",
         "/div",
+        "/install",
         "/mul",
         "/sub"
       ]
@@ -168,6 +188,9 @@ export const routeTree = rootRoute
     },
     "/div": {
       "filePath": "div.tsx"
+    },
+    "/install": {
+      "filePath": "install.tsx"
     },
     "/mul": {
       "filePath": "mul.tsx"
