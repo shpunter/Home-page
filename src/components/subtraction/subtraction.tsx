@@ -92,70 +92,70 @@ const Subtraction = () => {
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const difference = sub(["10", "5", "3"]);  // 10 - 5 - 3
-  console.log(difference); // Output: "2"`}
+const difference = sub(["10", "5", "3"]);  // 10 - 5 - 3
+console.log(difference); // Output: "2"`}
       </CodeBlock>
       <h3>2. Subtracting Decimal Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const decimalDifference = sub(["5.5", "2.75", "1.25"]); // 5.5 - 2.75 - 1.25
-  console.log(decimalDifference); // Output: "1.5"`}
+const decimalDifference = sub(["5.5", "2.75", "1.25"]); // 5.5 - 2.75 - 1.25
+console.log(decimalDifference); // Output: "1.5"`}
       </CodeBlock>
       <h3>3. Subtracting Negative Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const negativeDifference = sub(["10", "-5", "-2.5"]); // 10 - (-5) - (-2.5)  = 10 + 5 + 2.5
-  console.log(negativeDifference); // Output: "17.5"`}
+const negativeDifference = sub(["10", "-5", "-2.5"]); // 10 - (-5) - (-2.5)  = 10 + 5 + 2.5
+console.log(negativeDifference); // Output: "17.5"`}
       </CodeBlock>
       <h3>4. Subtracting Mixed Integer and Decimal Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const mixedDifference = sub(["20", "10.5", "2"]); // 20 - 10.5 - 2
-  console.log(mixedDifference); // Output: "7.5"`}
+const mixedDifference = sub(["20", "10.5", "2"]); // 20 - 10.5 - 2
+console.log(mixedDifference); // Output: "7.5"`}
       </CodeBlock>
       <h3>5. Subtracting Numbers with Large Values</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const largeDifference = sub(["98765432109876543210", "12345678901234567890"]);
-  console.log(largeDifference); // Output: "86419753208641975320"`}
+const largeDifference = sub(["98765432109876543210", "12345678901234567890"]);
+console.log(largeDifference); // Output: "86419753208641975320"`}
       </CodeBlock>
       <h3>6. Subtracting Numbers with Many Decimal Places</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const preciseDifference = sub(["1.123456789", "0.987654321"]);
-  console.log(preciseDifference); // Output: "0.135802468"`}
+const preciseDifference = sub(["1.123456789", "0.987654321"]);
+console.log(preciseDifference); // Output: "0.135802468"`}
       </CodeBlock>
       <h3>7. Subtracting Hexadecimal Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const hexDifference = sub(["0x30", "0x20", "0x10"]); // 48 - 32 - 16
-  console.log(hexDifference); // Output: "0"`}
+const hexDifference = sub(["0x30", "0x20", "0x10"]); // 48 - 32 - 16
+console.log(hexDifference); // Output: "0"`}
       </CodeBlock>
       <h3>8. Subtracting Octal Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const octalDifference = sub(["0o30", "0o20", "0o10"]); // 24 - 16 - 8
-  console.log(octalDifference); // Output: "0"`}
+const octalDifference = sub(["0o30", "0o20", "0o10"]); // 24 - 16 - 8
+console.log(octalDifference); // Output: "0"`}
       </CodeBlock>
       <h3>9. Subtracting Binary Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
   
-  const binaryDifference = sub(["0b110", "0b100", "0b10"]); // 6 - 4 - 2
-  console.log(binaryDifference); // Output: "0"`}
+const binaryDifference = sub(["0b110", "0b100", "0b10"]); // 6 - 4 - 2
+console.log(binaryDifference); // Output: "0"`}
       </CodeBlock>
       <h3>10. Subtracting Mixed-Base Numbers</h3>
       <CodeBlock>
         {`import { sub } from '@numio/bigmath';
-  const mixedBaseDifference = sub(["0x20", "0o20", "0b10", "10"]);  // 32 - 16 - 2 - 10
-  console.log(mixedBaseDifference); // Output: "4"`}
+const mixedBaseDifference = sub(["0x20", "0o20", "0b10", "10"]);  // 32 - 16 - 2 - 10
+console.log(mixedBaseDifference); // Output: "4"`}
       </CodeBlock>
       <h3>Important Considerations</h3>
       <ul>
