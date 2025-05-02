@@ -3,18 +3,21 @@ import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
 const Addition = () => {
   return (
     <>
-      <h3>Description</h3>
+      <h2>
+        <code>add</code> Function
+      </h2>
       <p>
-        The <strong>add</strong> function is a core component of the{" "}
-        <strong>@numio/bigmath</strong>{" "}
+        The <code>add</code> function is a core component of the{" "}
+        <code>@numio/bigmath</code>{" "}
         library, designed to perform addition operations on numbers with
         arbitrary precision. This means it can accurately add numbers of
-        JavaScript's built-in <strong>Number</strong>{" "}
+        virtually any size and decimal precision, overcoming the limitations of
+        JavaScript's built-in <code>Number</code>{" "}
         type, which can suffer from precision loss with very large or very small
         numbers, or those with many significant digits.
       </p>
       <p>
-        The <strong>add</strong>{" "}
+        The <code>add</code>{" "}
         function supports adding an array of numbers, and it also supports
         mixed-base arithmetic, including decimal, hexadecimal, octal, and binary
         numbers.
@@ -26,12 +29,15 @@ const Addition = () => {
       <h3>Parameters</h3>
       <ul>
         <li>
-          <strong>numbers</strong>: An array of strings, where each string
+          <code>numbers</code>: An array of strings, where each string
           represents a number to be added. The numbers can be integers,
-          decimals, and can be in decimal, hexadecimal (prefixed with "0x" or
-          "-0x"), octal (prefixed with "0o" or "-0o"), or binary (prefixed with
-          "0b" or "-0b") format. It is important to pass numbers as strings to
-          preserve precision.
+          decimals, and can be in decimal, hexadecimal (prefixed with{" "}
+          <code>"0x"</code> or <code>"-0x"</code>), octal (prefixed with{" "}
+          <code>"0o"</code> or <code>"-0o"</code>), or binary (prefixed with
+          {" "}
+          <code>"0b"</code> or{" "}
+          <code>"-0b"</code>) format. It is important to pass numbers as strings
+          to preserve precision.
         </li>
       </ul>
       <h3>Return Value</h3>
@@ -59,96 +65,85 @@ const Addition = () => {
         <li>
           <strong>Negative Numbers</strong>: The function correctly handles
           negative numbers.
-        </li>&#13;
+        </li>
         <li>
           <strong>Input Validation</strong>: While the function itself may not
           explicitly throw errors for invalid input formats, it relies on the
           internal number conversion mechanisms of the library. It's crucial to
           provide valid number string representations to avoid unexpected
-          results. Use the <strong>isHex</strong>, <strong>isBinary</strong>,
-          {" "}
-          <strong>isDecimal</strong>, and <strong>isOctal</strong>{" "}
+          results. Use the <code>isHex</code>, <code>isBinary</code>,{" "}
+          <code>isDecimal</code>, and <code>isOctal</code>{" "}
           functions to validate input strings before passing them to{" "}
-          <strong>add</strong>.
+          <code>add</code>.
         </li>
       </ul>
       <h3>Examples</h3>
       <h3>1. Adding Integers</h3>
       <CodeBlock>
-        {`
-import \{add\} from '@numio/bigmath';
-  
-const sum = add(["10", "20", "30"]); 
+        {`import {add} from '@numio/bigmath';
+
+const sum = add(["10", "20", "30"]);
 console.log(sum); // Output: "60"`}
       </CodeBlock>
       <h3>2. Adding Decimal Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const decimalSum = add(["1.5", "2.75", "0.25"]);
 console.log(decimalSum); // Output: "4.5"`}
       </CodeBlock>
       <h3>3. Adding Negative Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const negativeSum = add(["10", "-5", "-2.5"]);
 console.log(negativeSum); // Output: "2.5"`}
       </CodeBlock>
       <h3>4. Adding Mixed Integer and Decimal Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const mixedSum = add(["10", "20.5", "5"]);
 console.log(mixedSum); // Output: "35.5"`}
       </CodeBlock>
       <h3>5. Adding Numbers with Large Values</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const largeSum = add(["12345678901234567890", "98765432109876543210"]);
 console.log(largeSum); // Output: "111111111011111111000"`}
       </CodeBlock>
       <h3>6. Adding Numbers with Many Decimal Places</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const preciseSum = add(["0.123456789", "0.987654321"]);
 console.log(preciseSum); // Output: "1.11111111"`}
       </CodeBlock>
       <h3>7. Adding Hexadecimal Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const hexSum = add(["0x10", "0x20", "0x30"]); // 16 + 32 + 48
 console.log(hexSum); // Output: "96"`}
       </CodeBlock>
       <h3>8. Adding Octal Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const octalSum = add(["0o10", "0o20", "0o30"]); // 8 + 16 + 24
 console.log(octalSum); // Output: "48"`}
       </CodeBlock>
       <h3>9. Adding Binary Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const binarySum = add(["0b10", "0b100", "0b110"]); // 2 + 4 + 6
 console.log(binarySum); // Output: "12"`}
       </CodeBlock>
       <h3>10. Adding Mixed-Base Numbers</h3>
       <CodeBlock>
-        {`
-import { add } from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const mixedBaseSum = add(["10", "0x10", "0o10", "0b10"]); // 10 + 16 + 8 + 2
 console.log(mixedBaseSum); // Output: "36"`}
@@ -165,10 +160,10 @@ console.log(mixedBaseSum); // Output: "36"`}
           <strong>Valid Number Formats</strong>: Ensure that the input strings
           represent valid numbers in the specified base (decimal, hexadecimal,
           octal, or binary). Invalid formats may lead to unexpected results. Use
-          the <strong>isHex()</strong>, <strong>isBinary()</strong>,{" "}
-          <strong>isDecimal()</strong>, and <strong>isOctal()</strong>{" "}
+          the <code>isHex()</code>, <code>isBinary()</code> ,{" "}
+          <code>isDecimal()</code>, and <code>isOctal()</code>{" "}
           functions to validate the strings before passing them to the{" "}
-          <strong>add()</strong> function.
+          <code>add()</code> function.
         </li>
       </ul>
     </>
