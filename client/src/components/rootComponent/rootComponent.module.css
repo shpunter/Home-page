@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  grid-template-areas:
+    "left center right"
+    "left center right";
+  grid-template-columns: 200px minmax(350px, 1fr) 200px;
+  gap: 12px;
+}
+
+.left,
+.center,
+.right {
+  background-color: #fcfcfc;
+  border: solid 1px #ebebeb;
+  padding: 12px 16px;
+}
+
+.left {
+  grid-area: left;
+}
+
+.center {
+  grid-area: center;
+}
+
+.right {
+  grid-area: right;
+}
