@@ -2,7 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@hono/hono@^4.7.8": "4.7.8",
-    "jsr:@std/assert@^1.0.12": "1.0.13",
+    "jsr:@std/assert@^1.0.13": "1.0.13",
     "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.4__picomatch@4.0.2",
     "npm:@numio/bigmath@^2.2.1": "2.2.1",
@@ -14,6 +14,7 @@
     "npm:react-router-dom@^7.5.1": "7.5.3_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:react-syntax-highlighter@^15.6.1": "15.6.1_react@19.1.0",
     "npm:react@^19.1.0": "19.1.0",
+    "npm:vite@*": "6.3.4_picomatch@4.0.2",
     "npm:vite@^6.3.2": "6.3.4_picomatch@4.0.2"
   },
   "jsr": {
@@ -915,7 +916,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.7.8",
-      "jsr:@std/assert@^1.0.12",
+      "jsr:@std/assert@^1.0.13",
       "npm:@deno/vite-plugin@^1.0.4",
       "npm:@numio/bigmath@^2.2.1",
       "npm:@tanstack/react-router@^1.119.0",
