@@ -29,11 +29,11 @@ jobs:
       - name: Build step
         run: "deno task build"
 
-      - name: Upload to Deno Deploy
-        uses: denoland/deployctl@v1
-        with:
-          project: "numio"
-          entrypoint: "/server/main.ts"
-          root: "/server/"
+      # - name: Upload to Deno Deploy
+      #   uses: denoland/deployctl@v1
+      #   with:
+      #     project: "numio"
+      #     entrypoint: "/server/main.ts"
+      #     root: "/server/"
           
           
