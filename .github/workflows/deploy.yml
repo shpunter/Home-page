@@ -1,4 +1,4 @@
-name: Deploy SPA to Deno Deploy
+name: Deploy
 on:
   push:
     branches: main
@@ -23,16 +23,22 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install step
+        run: "deno install"
+
       - name: Build step
-        # env:
-        #   VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
         run: "deno task build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: numio-bigmath
-          entrypoint: main.ts
-          root: .
-        # env: 
-        #   DENO_DEPLOY_TOKEN: ${{ secrets.DENO_TOKEN }}
+          project: "shpunter-home-page-94"
+          entrypoint: "main.ts"
+          root: "client/dist"
+          
+          
