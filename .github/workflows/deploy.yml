@@ -34,5 +34,5 @@ jobs:
           project: numio-bigmath
           entrypoint: main.ts
           root: .
-        env: 
-          DENO_DEPLOY_TOKEN: ${{ secrets.DENO_TOKEN }}
+        # env: 
+        #   DENO_DEPLOY_TOKEN: ${{ secrets.DENO_TOKEN }}
