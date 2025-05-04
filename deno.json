@@ -8,9 +8,6 @@
   "imports": {
     "/": "./",
     "./": "./",
-    "@UI/": "./client/src/UI/",
-    "@comp/": "./client/src/utils/components",
-    "@utils/": "./client/src/utils/",
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.4",
     "@hono/hono": "jsr:@hono/hono@^4.7.8",
     "@numio/bigmath": "npm:@numio/bigmath@^2.2.1",

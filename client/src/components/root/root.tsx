@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Outlet } from "@tanstack/react-router";
-import Menu from "@UI/menu/menu.tsx";
+import Menu from "/client/src/UI/menu/menu.tsx";
 import css from "./root.module.css";
 import RightHandSideBlock from "./rightHandSideBlock/rightHandSideBlock.tsx";
 

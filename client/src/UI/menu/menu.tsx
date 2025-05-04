@@ -1,4 +1,4 @@
-import { classname } from "@utils/classname.ts";
+import { classname } from "/client/src/utils/classname.ts";
 import css from "./menu.module.css";
 import { JSX } from "react/jsx-runtime";
 

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import Menu from "@UI/menu/menu.tsx";
+import Menu from "/client/src/UI/menu/menu.tsx";
 
 const LeftHandSideBlock = () => {
   return (
