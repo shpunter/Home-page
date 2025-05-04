@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Outlet } from "@tanstack/react-router";
 import RightHandSideBlock from "/client/src/components/rightHandSideBlock/rightHandSideBlock.tsx";
 import Menu from "/client/src/UI/menu/menu.tsx";
-import css from "/src/components/rootComponent/rootComponent.module.css";
+import css from "./rootComponent.module.css";
 
 const RootComponent = () => {
   return (
