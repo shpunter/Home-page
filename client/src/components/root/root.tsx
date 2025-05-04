@@ -15,6 +15,7 @@ const Root = () => {
           <Link to="/sub">Subtraction</Link>
           <Link to="/div">Division</Link>
           <Link to="/mul">Multiplication</Link>
+          <Link to="/round">Round</Link>
         </Menu>
       </div>
       <main className={css.center}>

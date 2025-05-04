@@ -1,9 +1,9 @@
 import { classname } from "/client/src/utils/classname.ts";
-import css from "./menu.module.css";
+import styles from "./menu.module.css";
 import { JSX } from "react/jsx-runtime";
 
 const Menu = ({ children, className = "" }: Props) => {
-  const cn = classname({}, [css.menu, className]);
+  const cn = classname({}, [styles.menu, className]);
 
   return <nav className={cn}>{children}</nav>;
 };
