@@ -9,13 +9,55 @@ const Root = () => {
     <div className={css.grid}>
       <div className={css.left}>
         <Menu>
-          <Link to="/">Home</Link>
-          <Link to="/install">Installation</Link>
-          <Link to="/add">Addition</Link>
-          <Link to="/sub">Subtraction</Link>
-          <Link to="/div">Division</Link>
-          <Link to="/mul">Multiplication</Link>
-          <Link to="/round">Round</Link>
+          <Link
+            to="/"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Home
+          </Link>
+          <Link
+            to="/install"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Installation
+          </Link>
+          <Link
+            to="/add"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Addition
+          </Link>
+          <Link
+            to="/sub"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Subtraction
+          </Link>
+          <Link
+            to="/div"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Division
+          </Link>
+          <Link
+            to="/mul"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Multiplication
+          </Link>
+          <Link
+            to="/round"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Round
+          </Link>
         </Menu>
       </div>
       <main className={css.center}>

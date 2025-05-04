@@ -26,3 +26,12 @@
 .right {
   grid-area: right;
 }
+
+.active {
+  font-weight: 600;
+  color: rgb(36, 36, 36);
+}
+
+.link {
+  color: black;
+}
