@@ -8,7 +8,7 @@ const PORT = Number(Deno.env.get("PORT")) || 3000;
 async function handler(req: Request): Promise<Response> {
   // Serve static files from the ./dist directory
   const response = await serveDir(req, {
-    fsRoot: "./dist",
+    fsRoot: "./client/dist",
     urlRoot: "",
     showDirListing: false, // Disable directory listing
     enableCors: true, // Enable CORS for static files

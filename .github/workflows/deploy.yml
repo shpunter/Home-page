@@ -39,6 +39,6 @@ jobs:
         with:
           project: "shpunter-home-page-94"
           entrypoint: "./main.ts"
-          root: "../"
+          root: "./client/dist"
           
           
