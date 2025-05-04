@@ -1,4 +1,4 @@
-import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
+import CodeBlock from "@UI/codeBlock/codeBlock.tsx";
 import { div } from "@numio/bigmath";
 
 const Division = () => {

@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { Outlet } from "@tanstack/react-router";
-import RightHandSideBlock from "/client/src/components/rightHandSideBlock/rightHandSideBlock.tsx";
-import Menu from "/client/src/UI/menu/menu.tsx";
-import css from "./rootComponent.module.css";
+import Menu from "@UI/menu/menu.tsx";
+import css from "./root.module.css";
+import RightHandSideBlock from "./rightHandSideBlock/rightHandSideBlock.tsx";
 
-const RootComponent = () => {
+const Root = () => {
   return (
     <div className={css.grid}>
       <div className={css.left}>
@@ -25,4 +25,4 @@ const RootComponent = () => {
   );
 };
 
-export default RootComponent;
+export default Root;

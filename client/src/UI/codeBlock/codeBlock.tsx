@@ -1,5 +1,4 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { Props } from "./codeBlock.types.ts";
 
 const CodeBlock = ({ children, language = "javascript" }: Props) => {
   return (
@@ -10,3 +9,8 @@ const CodeBlock = ({ children, language = "javascript" }: Props) => {
 };
 
 export default CodeBlock;
+
+export type Props = {
+  children: string;
+  language?: "javascript" | "bash";
+};

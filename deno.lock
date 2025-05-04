@@ -2,6 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@hono/hono@^4.7.8": "4.7.8",
+    "jsr:@std/assert@*": "1.0.13",
     "jsr:@std/assert@^1.0.13": "1.0.13",
     "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.4__picomatch@4.0.2",
@@ -9,12 +10,10 @@
     "npm:@tanstack/react-router@^1.119.0": "1.119.0_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:@types/react@^19.1.2": "19.1.2",
     "npm:@vitejs/plugin-react@^4.4.1": "4.4.1_vite@6.3.4__picomatch@4.0.2_@babel+core@7.27.1",
-    "npm:path@~0.12.7": "0.12.7",
     "npm:react-dom@^19.1.0": "19.1.0_react@19.1.0",
     "npm:react-router-dom@^7.5.1": "7.5.3_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:react-syntax-highlighter@^15.6.1": "15.6.1_react@19.1.0",
     "npm:react@^19.1.0": "19.1.0",
-    "npm:vite@*": "6.3.4_picomatch@4.0.2",
     "npm:vite@^6.3.2": "6.3.4_picomatch@4.0.2"
   },
   "jsr": {
@@ -654,9 +653,6 @@
     "highlightjs-vue@1.0.0": {
       "integrity": "sha512-PDEfEF102G23vHmPhLyPboFCD+BkMGu+GuJe2d9/eH4FsCwvgBpnc9n0pGE+ffKdph38s6foEZiEjdgHdzp+IA=="
     },
-    "inherits@2.0.3": {
-      "integrity": "sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw=="
-    },
     "is-alphabetical@1.0.4": {
       "integrity": "sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg=="
     },
@@ -718,13 +714,6 @@
         "is-hexadecimal"
       ]
     },
-    "path@0.12.7": {
-      "integrity": "sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==",
-      "dependencies": [
-        "process",
-        "util"
-      ]
-    },
     "picocolors@1.1.1": {
       "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="
     },
@@ -744,9 +733,6 @@
     },
     "prismjs@1.30.0": {
       "integrity": "sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw=="
-    },
-    "process@0.11.10": {
-      "integrity": "sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A=="
     },
     "property-information@5.6.0": {
       "integrity": "sha512-YUHSPk+A30YPv+0Qf8i9Mbfe/C0hdPXk1s1jPVToV8pk8BQtpw10ct89Eo7OWkutrwqvT0eicAxlOg3dOAu8JA==",
@@ -885,12 +871,6 @@
         "react"
       ]
     },
-    "util@0.10.4": {
-      "integrity": "sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==",
-      "dependencies": [
-        "inherits"
-      ]
-    },
     "vite@6.3.4_picomatch@4.0.2": {
       "integrity": "sha512-BiReIiMS2fyFqbqNT/Qqt4CVITDU9M9vE+DKcVAsB+ZV0wvTKd+3hMbkpxz1b+NmEDMegpVbisKiAZOnvO92Sw==",
       "dependencies": [
@@ -967,7 +947,6 @@
       "npm:@tanstack/react-router@^1.119.0",
       "npm:@types/react@^19.1.2",
       "npm:@vitejs/plugin-react@^4.4.1",
-      "npm:path@~0.12.7",
       "npm:react-dom@^19.1.0",
       "npm:react-router-dom@^7.5.1",
       "npm:react-syntax-highlighter@^15.6.1",
