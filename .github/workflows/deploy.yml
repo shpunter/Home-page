@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "shpunter-home-page-94"
-          entrypoint: "main.ts"
+          entrypoint: "./main.ts"
           root: "."
           
           
