@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as SubImport } from './routes/sub'
 import { Route as RoundImport } from './routes/round'
+import { Route as QuartileImport } from './routes/quartile'
 import { Route as PipeImport } from './routes/pipe'
 import { Route as MulImport } from './routes/mul'
 import { Route as InstallImport } from './routes/install'
@@ -31,6 +32,12 @@ const SubRoute = SubImport.update({
 const RoundRoute = RoundImport.update({
   id: '/round',
   path: '/round',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const QuartileRoute = QuartileImport.update({
+  id: '/quartile',
+  path: '/quartile',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -116,6 +123,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PipeImport
       parentRoute: typeof rootRoute
     }
+    '/quartile': {
+      id: '/quartile'
+      path: '/quartile'
+      fullPath: '/quartile'
+      preLoaderRoute: typeof QuartileImport
+      parentRoute: typeof rootRoute
+    }
     '/round': {
       id: '/round'
       path: '/round'
@@ -142,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/install': typeof InstallRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
+  '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
   '/sub': typeof SubRoute
 }
@@ -153,6 +168,7 @@ export interface FileRoutesByTo {
   '/install': typeof InstallRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
+  '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
   '/sub': typeof SubRoute
 }
@@ -165,6 +181,7 @@ export interface FileRoutesById {
   '/install': typeof InstallRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
+  '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
   '/sub': typeof SubRoute
 }
@@ -178,10 +195,20 @@ export interface FileRouteTypes {
     | '/install'
     | '/mul'
     | '/pipe'
+    | '/quartile'
     | '/round'
     | '/sub'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/add' | '/div' | '/install' | '/mul' | '/pipe' | '/round' | '/sub'
+  to:
+    | '/'
+    | '/add'
+    | '/div'
+    | '/install'
+    | '/mul'
+    | '/pipe'
+    | '/quartile'
+    | '/round'
+    | '/sub'
   id:
     | '__root__'
     | '/'
@@ -190,6 +217,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/mul'
     | '/pipe'
+    | '/quartile'
     | '/round'
     | '/sub'
   fileRoutesById: FileRoutesById
@@ -202,6 +230,7 @@ export interface RootRouteChildren {
   InstallRoute: typeof InstallRoute
   MulRoute: typeof MulRoute
   PipeRoute: typeof PipeRoute
+  QuartileRoute: typeof QuartileRoute
   RoundRoute: typeof RoundRoute
   SubRoute: typeof SubRoute
 }
@@ -213,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   InstallRoute: InstallRoute,
   MulRoute: MulRoute,
   PipeRoute: PipeRoute,
+  QuartileRoute: QuartileRoute,
   RoundRoute: RoundRoute,
   SubRoute: SubRoute,
 }
@@ -233,6 +263,7 @@ export const routeTree = rootRoute
         "/install",
         "/mul",
         "/pipe",
+        "/quartile",
         "/round",
         "/sub"
       ]
@@ -254,6 +285,9 @@ export const routeTree = rootRoute
     },
     "/pipe": {
       "filePath": "pipe.tsx"
+    },
+    "/quartile": {
+      "filePath": "quartile.tsx"
     },
     "/round": {
       "filePath": "round.tsx"

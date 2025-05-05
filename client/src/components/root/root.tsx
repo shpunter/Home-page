@@ -65,6 +65,13 @@ const Root = () => {
           >
             Pipe
           </Link>
+          <Link
+            to="/quartile"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Quartile
+          </Link>          
         </Menu>
       </div>
       <main className={css.center}>
