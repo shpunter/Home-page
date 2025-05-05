@@ -8,9 +8,9 @@ const Quartile = () => {
         <code>quartile</code> Function
       </h2>
       <p>
-        The <code>quartile</code> function calculates the first, second, and
-        third quartiles of a given array of numbers. Quartiles divide a dataset
-        into four equal parts.
+        The <code>quartile</code>{" "}
+        function calculates the first, second, and third quartiles of a given
+        array of numbers. Quartiles divide a dataset into four equal parts.
       </p>
       <h3>Function Signature</h3>
       <CodeBlock language="javascript">
@@ -45,12 +45,12 @@ const Quartile = () => {
       <h3>Behavior</h3>
       <ul>
         <li>
-          The <code>quartile</code> function takes an array of numbers (as
-          strings) and returns the first, second, and third quartiles.
+          The <code>quartile</code>{" "}
+          function takes an array of numbers (as strings) and returns the first,
+          second, and third quartiles.
         </li>
         <li>
-          The input numbers should be provided as strings to maintain
-          precision.
+          The input numbers should be provided as strings to maintain precision.
         </li>
         <li>
           The function determines the quartiles by sorting the input data and
@@ -107,19 +107,21 @@ console.log(result);
       <h3>Important Considerations</h3>
       <ul>
         <li>
-          <strong>Input as Strings:</strong> Always provide the input numbers as
-          strings to ensure accurate calculations, especially when dealing with
-          decimal values or large numbers.
+          <strong>Input as Strings:</strong>{" "}
+          Always provide the input numbers as strings to ensure accurate
+          calculations, especially when dealing with decimal values or large
+          numbers.
         </li>
         <li>
-          <strong>Data Distribution:</strong> Quartiles are sensitive to the
-          distribution of the data. Ensure your input data is representative of
-          the population you are analyzing.
+          <strong>Data Distribution:</strong>{" "}
+          Quartiles are sensitive to the distribution of the data. Ensure your
+          input data is representative of the population you are analyzing.
         </li>
         <li>
-          <strong>Number of Elements:</strong> The quartile function should
-          work for any number of elements in the array, but arrays with fewer
-          than 4 elements may not provide meaningful quartile values.
+          <strong>Number of Elements:</strong>{" "}
+          The quartile function should work for any number of elements in the
+          array, but arrays with fewer than 4 elements may not provide
+          meaningful quartile values.
         </li>
       </ul>
     </>

@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SubImport } from './routes/sub'
+import { Route as SortImport } from './routes/sort'
 import { Route as RoundImport } from './routes/round'
 import { Route as QuartileImport } from './routes/quartile'
 import { Route as PipeImport } from './routes/pipe'
@@ -26,6 +27,12 @@ import { Route as IndexImport } from './routes/index'
 const SubRoute = SubImport.update({
   id: '/sub',
   path: '/sub',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SortRoute = SortImport.update({
+  id: '/sort',
+  path: '/sort',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -137,6 +144,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoundImport
       parentRoute: typeof rootRoute
     }
+    '/sort': {
+      id: '/sort'
+      path: '/sort'
+      fullPath: '/sort'
+      preLoaderRoute: typeof SortImport
+      parentRoute: typeof rootRoute
+    }
     '/sub': {
       id: '/sub'
       path: '/sub'
@@ -158,6 +172,7 @@ export interface FileRoutesByFullPath {
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
+  '/sort': typeof SortRoute
   '/sub': typeof SubRoute
 }
 
@@ -170,6 +185,7 @@ export interface FileRoutesByTo {
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
+  '/sort': typeof SortRoute
   '/sub': typeof SubRoute
 }
 
@@ -183,6 +199,7 @@ export interface FileRoutesById {
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
+  '/sort': typeof SortRoute
   '/sub': typeof SubRoute
 }
 
@@ -197,6 +214,7 @@ export interface FileRouteTypes {
     | '/pipe'
     | '/quartile'
     | '/round'
+    | '/sort'
     | '/sub'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -208,6 +226,7 @@ export interface FileRouteTypes {
     | '/pipe'
     | '/quartile'
     | '/round'
+    | '/sort'
     | '/sub'
   id:
     | '__root__'
@@ -219,6 +238,7 @@ export interface FileRouteTypes {
     | '/pipe'
     | '/quartile'
     | '/round'
+    | '/sort'
     | '/sub'
   fileRoutesById: FileRoutesById
 }
@@ -232,6 +252,7 @@ export interface RootRouteChildren {
   PipeRoute: typeof PipeRoute
   QuartileRoute: typeof QuartileRoute
   RoundRoute: typeof RoundRoute
+  SortRoute: typeof SortRoute
   SubRoute: typeof SubRoute
 }
 
@@ -244,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   PipeRoute: PipeRoute,
   QuartileRoute: QuartileRoute,
   RoundRoute: RoundRoute,
+  SortRoute: SortRoute,
   SubRoute: SubRoute,
 }
 
@@ -265,6 +287,7 @@ export const routeTree = rootRoute
         "/pipe",
         "/quartile",
         "/round",
+        "/sort",
         "/sub"
       ]
     },
@@ -291,6 +314,9 @@ export const routeTree = rootRoute
     },
     "/round": {
       "filePath": "round.tsx"
+    },
+    "/sort": {
+      "filePath": "sort.tsx"
     },
     "/sub": {
       "filePath": "sub.tsx"

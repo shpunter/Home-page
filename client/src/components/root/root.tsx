@@ -66,6 +66,13 @@ const Root = () => {
             Pipe
           </Link>
           <Link
+            to="/sort"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Sort
+          </Link>   
+          <Link
             to="/quartile"
             activeProps={{ className: css.active }}
             className={css.link}

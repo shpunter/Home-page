@@ -8,10 +8,11 @@ const Pipe = () => {
       </h2>
       <p>
         The <code>Pipe</code> function is a core component of the{" "}
-        <code>@numio/bigmath</code> library, designed to chain multiple arithmetic
-        operations in a sequential manner with arbitrary precision. This approach
-        enhances code readability and simplifies complex calculations by allowing
-        you to perform a series of operations (addition, subtraction, division,
+        <code>@numio/bigmath</code>{" "}
+        library, designed to chain multiple arithmetic operations in a
+        sequential manner with arbitrary precision. This approach enhances code
+        readability and simplifies complex calculations by allowing you to
+        perform a series of operations (addition, subtraction, division,
         multiplication, absolute value, and base conversion) in a single, fluent
         expression.
       </p>
@@ -21,7 +22,8 @@ const Pipe = () => {
         {`constructor Pipe(initialValue?: string)`}
       </CodeBlock>
       <p>
-        The constructor can optionally take an initial value as a string, which will be used as the starting value for the chain of operations.
+        The constructor can optionally take an initial value as a string, which
+        will be used as the starting value for the chain of operations.
       </p>
 
       <h3>Methods</h3>
@@ -57,7 +59,9 @@ const Pipe = () => {
               to subtract.
             </li>
           </ul>
-          <p>Returns: <code>Pipe</code> (for chaining)</p>
+          <p>
+            Returns: <code>Pipe</code> (for chaining)
+          </p>
         </li>
 
         <li>
@@ -68,10 +72,13 @@ const Pipe = () => {
           <p>Parameters:</p>
           <ul>
             <li>
-              <code>numbers</code>: An array of strings representing the divisors.
+              <code>numbers</code>: An array of strings representing the
+              divisors.
             </li>
           </ul>
-          <p>Returns: <code>Pipe</code> (for chaining)</p>
+          <p>
+            Returns: <code>Pipe</code> (for chaining)
+          </p>
         </li>
 
         <li>
@@ -86,13 +93,17 @@ const Pipe = () => {
               multipliers.
             </li>
           </ul>
-          <p>Returns: <code>Pipe</code> (for chaining)</p>
+          <p>
+            Returns: <code>Pipe</code> (for chaining)
+          </p>
         </li>
 
         <li>
           <code>abs(): Pipe</code>
           <p>Calculates the absolute value of the current result.</p>
-          <p>Returns: <code>Pipe</code> (for chaining)</p>
+          <p>
+            Returns: <code>Pipe</code> (for chaining)
+          </p>
         </li>
         <li>
           <code>resultToBase(base: number): string</code>
@@ -105,7 +116,9 @@ const Pipe = () => {
               <code>base</code>: An integer representing the target base (2-36).
             </li>
           </ul>
-          <p>Returns: A string representing the result in the specified base.</p>
+          <p>
+            Returns: A string representing the result in the specified base.
+          </p>
         </li>
         <li>
           <code>calc(): string</code>
@@ -120,29 +133,37 @@ const Pipe = () => {
       <h3>Behavior</h3>
       <ul>
         <li>
-          <strong>Chained Operations</strong>: The <code>Pipe</code> class enables
-          method chaining to perform a sequence of arithmetic operations.
+          <strong>Chained Operations</strong>: The <code>Pipe</code>{" "}
+          class enables method chaining to perform a sequence of arithmetic
+          operations.
         </li>
         <li>
           <strong>Arbitrary Precision</strong>: All operations within the{" "}
-          <code>Pipe</code> are performed using the arbitrary precision arithmetic
-          functions of <code>@numio/bigmath</code>.
+          <code>Pipe</code>{" "}
+          are performed using the arbitrary precision arithmetic functions of
+          {" "}
+          <code>@numio/bigmath</code>.
         </li>
         <li>
-          <strong>Intermediate Results</strong>: The <code>Pipe</code> class
-          internally stores and updates the intermediate result after each
+          <strong>Intermediate Results</strong>: The <code>Pipe</code>{" "}
+          class internally stores and updates the intermediate result after each
           operation.
         </li>
         <li>
-          <strong>Fluent Interface</strong>: The method chaining provides a fluent
-          and readable way to express complex calculations.
+          <strong>Fluent Interface</strong>: The method chaining provides a
+          fluent and readable way to express complex calculations.
         </li>
         <li>
           <strong>Base Conversion</strong>: Supports converting the final result
-          to different number bases (2 to 36).  The  <code>resultToBase</code> method returns the result as a string.
+          to different number bases (2 to 36). The <code>resultToBase</code>
+          {" "}
+          method returns the result as a string.
         </li>
-         <li>
-          <strong>Initial Value</strong>: You can initialize a <code>Pipe</code> with a starting value, or start with an empty <code>Pipe</code> and add values.
+        <li>
+          <strong>Initial Value</strong>: You can initialize a <code>Pipe</code>
+          {" "}
+          with a starting value, or start with an empty <code>Pipe</code>{" "}
+          and add values.
         </li>
       </ul>
 
@@ -286,4 +307,3 @@ console.log(result22); // 20
 };
 
 export default Pipe;
-
