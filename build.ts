@@ -1,1 +1,1 @@
-Deno.copyFileSync("main.ts", "client/dist/main.ts");
+Deno.copyFileSync("copy/main.ts", "client/dist/main.ts");
