@@ -21,7 +21,7 @@ const Root = () => {
     { path: "/min", label: "Min" },
     { path: "/isEqual", label: "IsEqual" },
     { path: "/isLeftGreater", label: "IsLeftGreater" },
-    
+    { path: "/isLeftGreaterOrEqual", label: "IsLeftGreaterOrEqual" },
   ];
 
   return (

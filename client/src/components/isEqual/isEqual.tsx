@@ -17,7 +17,7 @@ const IsEqual = () => {
       </p>
       <h3>Function Signature</h3>
       <CodeBlock language="javascript">
-        {`function isEqual(numbers: { left: string; right: string }): boolean`}
+        {`function isEqual(numbers: { left: string, right: string }): boolean`}
       </CodeBlock>
       <h3>Parameters</h3>
       <ul>
