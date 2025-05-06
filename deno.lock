@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@numio/bigmath@^2.2.1": "2.2.1",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.4__picomatch@4.0.2",
     "npm:@tanstack/react-router@^1.119.0": "1.119.0_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:@tanstack/router-plugin@^1.119.0": "1.119.0_@tanstack+react-router@1.119.0__react@19.1.0__react-dom@19.1.0___react@19.1.0_vite@6.3.4__picomatch@4.0.2_@babel+core@7.27.1_react@19.1.0_react-dom@19.1.0__react@19.1.0",
@@ -10,6 +11,11 @@
     "npm:react-syntax-highlighter@^15.6.1": "15.6.1_react@19.1.0",
     "npm:react@^19.1.0": "19.1.0",
     "npm:vite@^6.3.2": "6.3.4_picomatch@4.0.2"
+  },
+  "jsr": {
+    "@numio/bigmath@2.2.1": {
+      "integrity": "c21d746cd55c8e0c4cdea103dd7f644057fb16a83e79a8497ce20e199b7e731c"
+    }
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {

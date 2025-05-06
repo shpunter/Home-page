@@ -20,6 +20,7 @@ import { Route as MulImport } from './routes/mul'
 import { Route as MinImport } from './routes/min'
 import { Route as MeanImport } from './routes/mean'
 import { Route as MaxImport } from './routes/max'
+import { Route as MadImport } from './routes/mad'
 import { Route as IsLeftGreaterOrEqualImport } from './routes/isLeftGreaterOrEqual'
 import { Route as IsLeftGreaterImport } from './routes/isLeftGreater'
 import { Route as IsEqualImport } from './routes/isEqual'
@@ -81,6 +82,12 @@ const MeanRoute = MeanImport.update({
 const MaxRoute = MaxImport.update({
   id: '/max',
   path: '/max',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MadRoute = MadImport.update({
+  id: '/mad',
+  path: '/mad',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -179,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IsLeftGreaterOrEqualImport
       parentRoute: typeof rootRoute
     }
+    '/mad': {
+      id: '/mad'
+      path: '/mad'
+      fullPath: '/mad'
+      preLoaderRoute: typeof MadImport
+      parentRoute: typeof rootRoute
+    }
     '/max': {
       id: '/max'
       path: '/max'
@@ -255,6 +269,7 @@ export interface FileRoutesByFullPath {
   '/isEqual': typeof IsEqualRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
+  '/mad': typeof MadRoute
   '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
@@ -274,6 +289,7 @@ export interface FileRoutesByTo {
   '/isEqual': typeof IsEqualRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
+  '/mad': typeof MadRoute
   '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
@@ -294,6 +310,7 @@ export interface FileRoutesById {
   '/isEqual': typeof IsEqualRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
+  '/mad': typeof MadRoute
   '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
@@ -315,6 +332,7 @@ export interface FileRouteTypes {
     | '/isEqual'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
+    | '/mad'
     | '/max'
     | '/mean'
     | '/min'
@@ -333,6 +351,7 @@ export interface FileRouteTypes {
     | '/isEqual'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
+    | '/mad'
     | '/max'
     | '/mean'
     | '/min'
@@ -351,6 +370,7 @@ export interface FileRouteTypes {
     | '/isEqual'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
+    | '/mad'
     | '/max'
     | '/mean'
     | '/min'
@@ -371,6 +391,7 @@ export interface RootRouteChildren {
   IsEqualRoute: typeof IsEqualRoute
   IsLeftGreaterRoute: typeof IsLeftGreaterRoute
   IsLeftGreaterOrEqualRoute: typeof IsLeftGreaterOrEqualRoute
+  MadRoute: typeof MadRoute
   MaxRoute: typeof MaxRoute
   MeanRoute: typeof MeanRoute
   MinRoute: typeof MinRoute
@@ -390,6 +411,7 @@ const rootRouteChildren: RootRouteChildren = {
   IsEqualRoute: IsEqualRoute,
   IsLeftGreaterRoute: IsLeftGreaterRoute,
   IsLeftGreaterOrEqualRoute: IsLeftGreaterOrEqualRoute,
+  MadRoute: MadRoute,
   MaxRoute: MaxRoute,
   MeanRoute: MeanRoute,
   MinRoute: MinRoute,
@@ -418,6 +440,7 @@ export const routeTree = rootRoute
         "/isEqual",
         "/isLeftGreater",
         "/isLeftGreaterOrEqual",
+        "/mad",
         "/max",
         "/mean",
         "/min",
@@ -449,6 +472,9 @@ export const routeTree = rootRoute
     },
     "/isLeftGreaterOrEqual": {
       "filePath": "isLeftGreaterOrEqual.tsx"
+    },
+    "/mad": {
+      "filePath": "mad.tsx"
     },
     "/max": {
       "filePath": "max.tsx"
