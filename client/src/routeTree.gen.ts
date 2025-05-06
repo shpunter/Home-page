@@ -20,6 +20,7 @@ import { Route as MulImport } from './routes/mul'
 import { Route as MinImport } from './routes/min'
 import { Route as MeanImport } from './routes/mean'
 import { Route as MaxImport } from './routes/max'
+import { Route as IsLeftGreaterImport } from './routes/isLeftGreater'
 import { Route as IsEqualImport } from './routes/isEqual'
 import { Route as InstallImport } from './routes/install'
 import { Route as DivImport } from './routes/div'
@@ -79,6 +80,12 @@ const MeanRoute = MeanImport.update({
 const MaxRoute = MaxImport.update({
   id: '/max',
   path: '/max',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IsLeftGreaterRoute = IsLeftGreaterImport.update({
+  id: '/isLeftGreater',
+  path: '/isLeftGreater',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -149,6 +156,13 @@ declare module '@tanstack/react-router' {
       path: '/isEqual'
       fullPath: '/isEqual'
       preLoaderRoute: typeof IsEqualImport
+      parentRoute: typeof rootRoute
+    }
+    '/isLeftGreater': {
+      id: '/isLeftGreater'
+      path: '/isLeftGreater'
+      fullPath: '/isLeftGreater'
+      preLoaderRoute: typeof IsLeftGreaterImport
       parentRoute: typeof rootRoute
     }
     '/max': {
@@ -225,6 +239,7 @@ export interface FileRoutesByFullPath {
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
   '/isEqual': typeof IsEqualRoute
+  '/isLeftGreater': typeof IsLeftGreaterRoute
   '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
@@ -242,6 +257,7 @@ export interface FileRoutesByTo {
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
   '/isEqual': typeof IsEqualRoute
+  '/isLeftGreater': typeof IsLeftGreaterRoute
   '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
@@ -260,6 +276,7 @@ export interface FileRoutesById {
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
   '/isEqual': typeof IsEqualRoute
+  '/isLeftGreater': typeof IsLeftGreaterRoute
   '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
@@ -279,6 +296,7 @@ export interface FileRouteTypes {
     | '/div'
     | '/install'
     | '/isEqual'
+    | '/isLeftGreater'
     | '/max'
     | '/mean'
     | '/min'
@@ -295,6 +313,7 @@ export interface FileRouteTypes {
     | '/div'
     | '/install'
     | '/isEqual'
+    | '/isLeftGreater'
     | '/max'
     | '/mean'
     | '/min'
@@ -311,6 +330,7 @@ export interface FileRouteTypes {
     | '/div'
     | '/install'
     | '/isEqual'
+    | '/isLeftGreater'
     | '/max'
     | '/mean'
     | '/min'
@@ -329,6 +349,7 @@ export interface RootRouteChildren {
   DivRoute: typeof DivRoute
   InstallRoute: typeof InstallRoute
   IsEqualRoute: typeof IsEqualRoute
+  IsLeftGreaterRoute: typeof IsLeftGreaterRoute
   MaxRoute: typeof MaxRoute
   MeanRoute: typeof MeanRoute
   MinRoute: typeof MinRoute
@@ -346,6 +367,7 @@ const rootRouteChildren: RootRouteChildren = {
   DivRoute: DivRoute,
   InstallRoute: InstallRoute,
   IsEqualRoute: IsEqualRoute,
+  IsLeftGreaterRoute: IsLeftGreaterRoute,
   MaxRoute: MaxRoute,
   MeanRoute: MeanRoute,
   MinRoute: MinRoute,
@@ -372,6 +394,7 @@ export const routeTree = rootRoute
         "/div",
         "/install",
         "/isEqual",
+        "/isLeftGreater",
         "/max",
         "/mean",
         "/min",
@@ -397,6 +420,9 @@ export const routeTree = rootRoute
     },
     "/isEqual": {
       "filePath": "isEqual.tsx"
+    },
+    "/isLeftGreater": {
+      "filePath": "isLeftGreater.tsx"
     },
     "/max": {
       "filePath": "max.tsx"
