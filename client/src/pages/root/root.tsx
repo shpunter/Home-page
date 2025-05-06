@@ -25,6 +25,7 @@ const Root = () => {
     { path: "/mad", label: "MAD" },
     { path: "/iqr", label: "IQR" },
     { path: "/sqrt", label: "sqrt" },
+    { path: "/cbrt", label: "cbrt" },   
   ];
 
   return (

@@ -28,6 +28,7 @@ import { Route as IsEqualImport } from './routes/isEqual'
 import { Route as IqrImport } from './routes/iqr'
 import { Route as InstallImport } from './routes/install'
 import { Route as DivImport } from './routes/div'
+import { Route as CbrtImport } from './routes/cbrt'
 import { Route as AddImport } from './routes/add'
 import { Route as IndexImport } from './routes/index'
 
@@ -135,6 +136,12 @@ const DivRoute = DivImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const CbrtRoute = CbrtImport.update({
+  id: '/cbrt',
+  path: '/cbrt',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AddRoute = AddImport.update({
   id: '/add',
   path: '/add',
@@ -163,6 +170,13 @@ declare module '@tanstack/react-router' {
       path: '/add'
       fullPath: '/add'
       preLoaderRoute: typeof AddImport
+      parentRoute: typeof rootRoute
+    }
+    '/cbrt': {
+      id: '/cbrt'
+      path: '/cbrt'
+      fullPath: '/cbrt'
+      preLoaderRoute: typeof CbrtImport
       parentRoute: typeof rootRoute
     }
     '/div': {
@@ -292,6 +306,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
+  '/cbrt': typeof CbrtRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
@@ -314,6 +329,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/add': typeof AddRoute
+  '/cbrt': typeof CbrtRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
@@ -337,6 +353,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/add': typeof AddRoute
+  '/cbrt': typeof CbrtRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
@@ -361,6 +378,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/add'
+    | '/cbrt'
     | '/div'
     | '/install'
     | '/iqr'
@@ -382,6 +400,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/add'
+    | '/cbrt'
     | '/div'
     | '/install'
     | '/iqr'
@@ -403,6 +422,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/add'
+    | '/cbrt'
     | '/div'
     | '/install'
     | '/iqr'
@@ -426,6 +446,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddRoute: typeof AddRoute
+  CbrtRoute: typeof CbrtRoute
   DivRoute: typeof DivRoute
   InstallRoute: typeof InstallRoute
   IqrRoute: typeof IqrRoute
@@ -448,6 +469,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddRoute: AddRoute,
+  CbrtRoute: CbrtRoute,
   DivRoute: DivRoute,
   InstallRoute: InstallRoute,
   IqrRoute: IqrRoute,
@@ -479,6 +501,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/add",
+        "/cbrt",
         "/div",
         "/install",
         "/iqr",
@@ -503,6 +526,9 @@ export const routeTree = rootRoute
     },
     "/add": {
       "filePath": "add.tsx"
+    },
+    "/cbrt": {
+      "filePath": "cbrt.tsx"
     },
     "/div": {
       "filePath": "div.tsx"
