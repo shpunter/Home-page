@@ -71,14 +71,21 @@ const Root = () => {
             className={css.link}
           >
             Sort
-          </Link>   
+          </Link>
           <Link
             to="/quartile"
             activeProps={{ className: css.active }}
             className={css.link}
           >
             Quartile
-          </Link>          
+          </Link>
+          <Link
+            to="/mean"
+            activeProps={{ className: css.active }}
+            className={css.link}
+          >
+            Mean
+          </Link>
         </Menu>
       </div>
       <main className={css.center}>

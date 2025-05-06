@@ -17,6 +17,7 @@ import { Route as RoundImport } from './routes/round'
 import { Route as QuartileImport } from './routes/quartile'
 import { Route as PipeImport } from './routes/pipe'
 import { Route as MulImport } from './routes/mul'
+import { Route as MeanImport } from './routes/mean'
 import { Route as InstallImport } from './routes/install'
 import { Route as DivImport } from './routes/div'
 import { Route as AddImport } from './routes/add'
@@ -57,6 +58,12 @@ const PipeRoute = PipeImport.update({
 const MulRoute = MulImport.update({
   id: '/mul',
   path: '/mul',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MeanRoute = MeanImport.update({
+  id: '/mean',
+  path: '/mean',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -116,6 +123,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstallImport
       parentRoute: typeof rootRoute
     }
+    '/mean': {
+      id: '/mean'
+      path: '/mean'
+      fullPath: '/mean'
+      preLoaderRoute: typeof MeanImport
+      parentRoute: typeof rootRoute
+    }
     '/mul': {
       id: '/mul'
       path: '/mul'
@@ -168,6 +182,7 @@ export interface FileRoutesByFullPath {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/mean': typeof MeanRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
@@ -181,6 +196,7 @@ export interface FileRoutesByTo {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/mean': typeof MeanRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
@@ -195,6 +211,7 @@ export interface FileRoutesById {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/mean': typeof MeanRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
@@ -210,6 +227,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/mean'
     | '/mul'
     | '/pipe'
     | '/quartile'
@@ -222,6 +240,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/mean'
     | '/mul'
     | '/pipe'
     | '/quartile'
@@ -234,6 +253,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/mean'
     | '/mul'
     | '/pipe'
     | '/quartile'
@@ -248,6 +268,7 @@ export interface RootRouteChildren {
   AddRoute: typeof AddRoute
   DivRoute: typeof DivRoute
   InstallRoute: typeof InstallRoute
+  MeanRoute: typeof MeanRoute
   MulRoute: typeof MulRoute
   PipeRoute: typeof PipeRoute
   QuartileRoute: typeof QuartileRoute
@@ -261,6 +282,7 @@ const rootRouteChildren: RootRouteChildren = {
   AddRoute: AddRoute,
   DivRoute: DivRoute,
   InstallRoute: InstallRoute,
+  MeanRoute: MeanRoute,
   MulRoute: MulRoute,
   PipeRoute: PipeRoute,
   QuartileRoute: QuartileRoute,
@@ -283,6 +305,7 @@ export const routeTree = rootRoute
         "/add",
         "/div",
         "/install",
+        "/mean",
         "/mul",
         "/pipe",
         "/quartile",
@@ -302,6 +325,9 @@ export const routeTree = rootRoute
     },
     "/install": {
       "filePath": "install.tsx"
+    },
+    "/mean": {
+      "filePath": "mean.tsx"
     },
     "/mul": {
       "filePath": "mul.tsx"
