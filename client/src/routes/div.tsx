@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Division from "/client/src/pages/division/division.tsx";
+import { lazy, Suspense } from "react";
+
+const DivisionDoc = lazy(() => import("/client/src/pages/division/division.tsx"));
 
 export const Route = createFileRoute("/div")({
-  component: Division,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <DivisionDoc />
+      </Suspense>
+    );
+  },
 });

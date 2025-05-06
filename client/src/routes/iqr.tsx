@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import IQRDoc from "/client/src/pages/IQR/IQR.tsx";
+import { lazy, Suspense } from "react";
+
+const IQRDoc = lazy(() => import("/client/src/pages/IQR/IQR.tsx"));
 
 export const Route = createFileRoute("/iqr")({
-  component: IQRDoc,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <IQRDoc />
+      </Suspense>
+    );
+  },
 });

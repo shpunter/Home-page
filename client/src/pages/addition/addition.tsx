@@ -1,6 +1,6 @@
 import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
 
-const Addition = () => {
+const AdditionDoc = () => {
   return (
     <>
       <h2>
@@ -170,4 +170,4 @@ console.log(mixedBaseSum); // Output: "36"`}
   );
 };
 
-export default Addition;
+export default AdditionDoc;

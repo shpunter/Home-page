@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Multiplication from "/client/src/pages/multiplication/multiplication.tsx";
+import { lazy, Suspense } from "react";
+
+const MultiplicationDoc = lazy(() =>
+  import("/client/src/pages/multiplication/multiplication.tsx")
+);
 
 export const Route = createFileRoute("/mul")({
-  component: Multiplication,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <MultiplicationDoc />
+      </Suspense>
+    );
+  },
 });

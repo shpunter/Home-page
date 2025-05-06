@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CbrtDoc from "/client/src/pages/cbrt/cbrt.tsx";
+import { lazy, Suspense } from "react";
+
+const CbrtDoc = lazy(() => import("/client/src/pages/cbrt/cbrt.tsx"));
 
 export const Route = createFileRoute("/cbrt")({
-  component: CbrtDoc,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <CbrtDoc />
+      </Suspense>
+    );
+  },
 });

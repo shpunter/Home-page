@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import MADDoc from "/client/src/pages/MAD/MAD.tsx";
+import { lazy, Suspense } from "react";
+
+const MADDoc = lazy(() => import("/client/src/pages/MAD/MAD.tsx"));
 
 export const Route = createFileRoute("/mad")({
-  component: MADDoc,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <MADDoc />
+      </Suspense>
+    );
+  },
 });

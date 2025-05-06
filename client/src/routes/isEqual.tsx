@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import IsEqual from "/client/src/pages/isEqual/isEqual.tsx";
+import { lazy, Suspense } from "react";
+
+const IsEqualDoc = lazy(() => import("/client/src/pages/isEqual/isEqual.tsx"));
 
 export const Route = createFileRoute("/isEqual")({
-  component: IsEqual,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <IsEqualDoc />
+      </Suspense>
+    );
+  },
 });

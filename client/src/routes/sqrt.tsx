@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import SqrtDoc from "/client/src/pages/sqrt/sqrt.tsx";
+import { lazy, Suspense } from "react";
+
+const SqrtDoc = lazy(() => import("/client/src/pages/sqrt/sqrt.tsx"));
 
 export const Route = createFileRoute("/sqrt")({
-  component: SqrtDoc,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <SqrtDoc />
+      </Suspense>
+    );
+  },
 });

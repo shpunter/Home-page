@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import IsLeftGreaterOrEqual from "/client/src/pages/isLeftGreaterOrEqual/isLeftGreaterOrEqual.tsx";
+import { lazy, Suspense } from "react";
+
+const IsLeftGreaterOrEqualDoc = lazy(() =>
+  import("/client/src/pages/isLeftGreaterOrEqual/isLeftGreaterOrEqual.tsx")
+);
 
 export const Route = createFileRoute("/isLeftGreaterOrEqual")({
-  component: IsLeftGreaterOrEqual,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <IsLeftGreaterOrEqualDoc />
+      </Suspense>
+    );
+  },
 });

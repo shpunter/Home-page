@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Sort from "/client/src/pages/sort/sort.tsx";
+import { lazy, Suspense } from "react";
+
+const SortDoc = lazy(() => import("/client/src/pages/sort/sort.tsx"));
 
 export const Route = createFileRoute("/sort")({
-  component: Sort,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <SortDoc />
+      </Suspense>
+    );
+  },
 });

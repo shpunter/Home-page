@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import IsLeftGreater from "/client/src/pages/isLeftGreater/isLeftGreater.tsx";
+import { lazy, Suspense } from "react";
+
+const IsLeftGreaterDoc = lazy(() =>
+  import("/client/src/pages/isLeftGreater/isLeftGreater.tsx")
+);
 
 export const Route = createFileRoute("/isLeftGreater")({
-  component: IsLeftGreater,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <IsLeftGreaterDoc />
+      </Suspense>
+    );
+  },
 });

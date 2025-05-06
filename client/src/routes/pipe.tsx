@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Pipe from "/client/src/pages/pipe/pipe.tsx";
+import { lazy, Suspense } from "react";
+
+const PipeDoc = lazy(() => import("/client/src/pages/pipe/pipe.tsx"));
 
 export const Route = createFileRoute("/pipe")({
-  component: Pipe,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <PipeDoc />
+      </Suspense>
+    );
+  },
 });

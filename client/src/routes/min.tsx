@@ -1,6 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Min from "/client/src/pages/min/min.tsx";
+import { lazy, Suspense } from "react";
+
+const MinDoc = lazy(() => import("/client/src/pages/min/min.tsx"));
 
 export const Route = createFileRoute("/min")({
-  component: Min,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <MinDoc />
+      </Suspense>
+    );
+  },
 });
+

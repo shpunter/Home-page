@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import AbsDoc from "/client/src/pages/abs/abs.tsx";
+import { lazy, Suspense } from "react";
+
+const AbsDoc = lazy(() => import("/client/src/pages/abs/abs.tsx"));
 
 export const Route = createFileRoute("/abs")({
-  component: AbsDoc,
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <AbsDoc />
+      </Suspense>
+    );
+  },
 });

@@ -1,6 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
-import Mean from "/client/src/pages/mean/mean.tsx";
+import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 
-export const Route = createFileRoute('/mean')({
-  component: Mean,
-})
+const MeanDoc = lazy(() => import("/client/src/pages/mean/mean.tsx"));
+
+export const Route = createFileRoute("/mean")({
+  component: () => {
+    return (
+      <Suspense fallback={<span>loading</span>}>
+        <MeanDoc />
+      </Suspense>
+    );
+  },
+});
