@@ -1,5 +1,4 @@
 import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
-import {cbrt} from "@numio/bigmath";
 
 const CbrtDoc = () => {
   return (
