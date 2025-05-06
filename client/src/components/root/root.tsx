@@ -24,6 +24,7 @@ const Root = () => {
     { path: "/isLeftGreaterOrEqual", label: "IsLeftGreaterOrEqual" },
     { path: "/mad", label: "MAD" },
     { path: "/iqr", label: "IQR" },
+    { path: "/sqrt", label: "sqrt" },
   ];
 
   return (

@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SubImport } from './routes/sub'
+import { Route as SqrtImport } from './routes/sqrt'
 import { Route as SortImport } from './routes/sort'
 import { Route as RoundImport } from './routes/round'
 import { Route as QuartileImport } from './routes/quartile'
@@ -35,6 +36,12 @@ import { Route as IndexImport } from './routes/index'
 const SubRoute = SubImport.update({
   id: '/sub',
   path: '/sub',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SqrtRoute = SqrtImport.update({
+  id: '/sqrt',
+  path: '/sqrt',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -263,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SortImport
       parentRoute: typeof rootRoute
     }
+    '/sqrt': {
+      id: '/sqrt'
+      path: '/sqrt'
+      fullPath: '/sqrt'
+      preLoaderRoute: typeof SqrtImport
+      parentRoute: typeof rootRoute
+    }
     '/sub': {
       id: '/sub'
       path: '/sub'
@@ -293,6 +307,7 @@ export interface FileRoutesByFullPath {
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
   '/sort': typeof SortRoute
+  '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
 }
 
@@ -314,6 +329,7 @@ export interface FileRoutesByTo {
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
   '/sort': typeof SortRoute
+  '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
 }
 
@@ -336,6 +352,7 @@ export interface FileRoutesById {
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
   '/sort': typeof SortRoute
+  '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
 }
 
@@ -359,6 +376,7 @@ export interface FileRouteTypes {
     | '/quartile'
     | '/round'
     | '/sort'
+    | '/sqrt'
     | '/sub'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -379,6 +397,7 @@ export interface FileRouteTypes {
     | '/quartile'
     | '/round'
     | '/sort'
+    | '/sqrt'
     | '/sub'
   id:
     | '__root__'
@@ -399,6 +418,7 @@ export interface FileRouteTypes {
     | '/quartile'
     | '/round'
     | '/sort'
+    | '/sqrt'
     | '/sub'
   fileRoutesById: FileRoutesById
 }
@@ -421,6 +441,7 @@ export interface RootRouteChildren {
   QuartileRoute: typeof QuartileRoute
   RoundRoute: typeof RoundRoute
   SortRoute: typeof SortRoute
+  SqrtRoute: typeof SqrtRoute
   SubRoute: typeof SubRoute
 }
 
@@ -442,6 +463,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuartileRoute: QuartileRoute,
   RoundRoute: RoundRoute,
   SortRoute: SortRoute,
+  SqrtRoute: SqrtRoute,
   SubRoute: SubRoute,
 }
 
@@ -472,6 +494,7 @@ export const routeTree = rootRoute
         "/quartile",
         "/round",
         "/sort",
+        "/sqrt",
         "/sub"
       ]
     },
@@ -525,6 +548,9 @@ export const routeTree = rootRoute
     },
     "/sort": {
       "filePath": "sort.tsx"
+    },
+    "/sqrt": {
+      "filePath": "sqrt.tsx"
     },
     "/sub": {
       "filePath": "sub.tsx"
