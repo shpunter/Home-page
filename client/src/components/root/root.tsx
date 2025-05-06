@@ -19,6 +19,7 @@ const Root = () => {
     { path: "/mean", label: "Mean" },
     { path: "/max", label: "Max" },
     { path: "/min", label: "Min" },
+    { path: "/isequal", label: "IsEqual" },
   ];
 
   return (
