@@ -1,5 +1,4 @@
 import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
-import {IQR} from "@numio/bigmath";
 
 const IQRDoc = () => {
   return (
