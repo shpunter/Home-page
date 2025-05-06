@@ -24,6 +24,7 @@ import { Route as MadImport } from './routes/mad'
 import { Route as IsLeftGreaterOrEqualImport } from './routes/isLeftGreaterOrEqual'
 import { Route as IsLeftGreaterImport } from './routes/isLeftGreater'
 import { Route as IsEqualImport } from './routes/isEqual'
+import { Route as IqrImport } from './routes/iqr'
 import { Route as InstallImport } from './routes/install'
 import { Route as DivImport } from './routes/div'
 import { Route as AddImport } from './routes/add'
@@ -109,6 +110,12 @@ const IsEqualRoute = IsEqualImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const IqrRoute = IqrImport.update({
+  id: '/iqr',
+  path: '/iqr',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const InstallRoute = InstallImport.update({
   id: '/install',
   path: '/install',
@@ -163,6 +170,13 @@ declare module '@tanstack/react-router' {
       path: '/install'
       fullPath: '/install'
       preLoaderRoute: typeof InstallImport
+      parentRoute: typeof rootRoute
+    }
+    '/iqr': {
+      id: '/iqr'
+      path: '/iqr'
+      fullPath: '/iqr'
+      preLoaderRoute: typeof IqrImport
       parentRoute: typeof rootRoute
     }
     '/isEqual': {
@@ -266,6 +280,7 @@ export interface FileRoutesByFullPath {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/iqr': typeof IqrRoute
   '/isEqual': typeof IsEqualRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
@@ -286,6 +301,7 @@ export interface FileRoutesByTo {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/iqr': typeof IqrRoute
   '/isEqual': typeof IsEqualRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
@@ -307,6 +323,7 @@ export interface FileRoutesById {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/iqr': typeof IqrRoute
   '/isEqual': typeof IsEqualRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
@@ -329,6 +346,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/iqr'
     | '/isEqual'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
@@ -348,6 +366,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/iqr'
     | '/isEqual'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
@@ -367,6 +386,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/iqr'
     | '/isEqual'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
@@ -388,6 +408,7 @@ export interface RootRouteChildren {
   AddRoute: typeof AddRoute
   DivRoute: typeof DivRoute
   InstallRoute: typeof InstallRoute
+  IqrRoute: typeof IqrRoute
   IsEqualRoute: typeof IsEqualRoute
   IsLeftGreaterRoute: typeof IsLeftGreaterRoute
   IsLeftGreaterOrEqualRoute: typeof IsLeftGreaterOrEqualRoute
@@ -408,6 +429,7 @@ const rootRouteChildren: RootRouteChildren = {
   AddRoute: AddRoute,
   DivRoute: DivRoute,
   InstallRoute: InstallRoute,
+  IqrRoute: IqrRoute,
   IsEqualRoute: IsEqualRoute,
   IsLeftGreaterRoute: IsLeftGreaterRoute,
   IsLeftGreaterOrEqualRoute: IsLeftGreaterOrEqualRoute,
@@ -437,6 +459,7 @@ export const routeTree = rootRoute
         "/add",
         "/div",
         "/install",
+        "/iqr",
         "/isEqual",
         "/isLeftGreater",
         "/isLeftGreaterOrEqual",
@@ -463,6 +486,9 @@ export const routeTree = rootRoute
     },
     "/install": {
       "filePath": "install.tsx"
+    },
+    "/iqr": {
+      "filePath": "iqr.tsx"
     },
     "/isEqual": {
       "filePath": "isEqual.tsx"
