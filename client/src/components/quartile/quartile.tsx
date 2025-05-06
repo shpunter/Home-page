@@ -1,4 +1,3 @@
-import { quartile } from "@numio/bigmath";
 import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
 
 const Quartile = () => {

@@ -18,6 +18,7 @@ const Root = () => {
     { path: "/quartile", label: "Quartile" },
     { path: "/mean", label: "Mean" },
     { path: "/max", label: "Max" },
+    { path: "/min", label: "Min" },
   ];
 
   return (
