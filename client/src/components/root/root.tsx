@@ -5,87 +5,37 @@ import css from "./root.module.css";
 import RightHandSideBlock from "./rightHandSideBlock/rightHandSideBlock.tsx";
 
 const Root = () => {
+  const links = [
+    { path: "/", label: "Home" },
+    { path: "/install", label: "Installation" },
+    { path: "/add", label: "Addition" },
+    { path: "/sub", label: "Subtraction" },
+    { path: "/div", label: "Division" },
+    { path: "/mul", label: "Multiplication" },
+    { path: "/round", label: "Round" },
+    { path: "/pipe", label: "Pipe" },
+    { path: "/sort", label: "Sort" },
+    { path: "/quartile", label: "Quartile" },
+    { path: "/mean", label: "Mean" },
+    { path: "/max", label: "Max" },
+  ];
+
   return (
     <div className={css.grid}>
       <div className={css.left}>
         <Menu>
-          <Link
-            to="/"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Home
-          </Link>
-          <Link
-            to="/install"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Installation
-          </Link>
-          <Link
-            to="/add"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Addition
-          </Link>
-          <Link
-            to="/sub"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Subtraction
-          </Link>
-          <Link
-            to="/div"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Division
-          </Link>
-          <Link
-            to="/mul"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Multiplication
-          </Link>
-          <Link
-            to="/round"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Round
-          </Link>
-          <Link
-            to="/pipe"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Pipe
-          </Link>
-          <Link
-            to="/sort"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Sort
-          </Link>
-          <Link
-            to="/quartile"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Quartile
-          </Link>
-          <Link
-            to="/mean"
-            activeProps={{ className: css.active }}
-            className={css.link}
-          >
-            Mean
-          </Link>
+          {links.map((link) => {
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                activeProps={{ className: css.active }}
+                className={css.link}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </Menu>
       </div>
       <main className={css.center}>

@@ -18,6 +18,7 @@ import { Route as QuartileImport } from './routes/quartile'
 import { Route as PipeImport } from './routes/pipe'
 import { Route as MulImport } from './routes/mul'
 import { Route as MeanImport } from './routes/mean'
+import { Route as MaxImport } from './routes/max'
 import { Route as InstallImport } from './routes/install'
 import { Route as DivImport } from './routes/div'
 import { Route as AddImport } from './routes/add'
@@ -64,6 +65,12 @@ const MulRoute = MulImport.update({
 const MeanRoute = MeanImport.update({
   id: '/mean',
   path: '/mean',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MaxRoute = MaxImport.update({
+  id: '/max',
+  path: '/max',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -121,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/install'
       fullPath: '/install'
       preLoaderRoute: typeof InstallImport
+      parentRoute: typeof rootRoute
+    }
+    '/max': {
+      id: '/max'
+      path: '/max'
+      fullPath: '/max'
+      preLoaderRoute: typeof MaxImport
       parentRoute: typeof rootRoute
     }
     '/mean': {
@@ -182,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
@@ -196,6 +211,7 @@ export interface FileRoutesByTo {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
@@ -211,6 +227,7 @@ export interface FileRoutesById {
   '/add': typeof AddRoute
   '/div': typeof DivRoute
   '/install': typeof InstallRoute
+  '/max': typeof MaxRoute
   '/mean': typeof MeanRoute
   '/mul': typeof MulRoute
   '/pipe': typeof PipeRoute
@@ -227,6 +244,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/max'
     | '/mean'
     | '/mul'
     | '/pipe'
@@ -240,6 +258,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/max'
     | '/mean'
     | '/mul'
     | '/pipe'
@@ -253,6 +272,7 @@ export interface FileRouteTypes {
     | '/add'
     | '/div'
     | '/install'
+    | '/max'
     | '/mean'
     | '/mul'
     | '/pipe'
@@ -268,6 +288,7 @@ export interface RootRouteChildren {
   AddRoute: typeof AddRoute
   DivRoute: typeof DivRoute
   InstallRoute: typeof InstallRoute
+  MaxRoute: typeof MaxRoute
   MeanRoute: typeof MeanRoute
   MulRoute: typeof MulRoute
   PipeRoute: typeof PipeRoute
@@ -282,6 +303,7 @@ const rootRouteChildren: RootRouteChildren = {
   AddRoute: AddRoute,
   DivRoute: DivRoute,
   InstallRoute: InstallRoute,
+  MaxRoute: MaxRoute,
   MeanRoute: MeanRoute,
   MulRoute: MulRoute,
   PipeRoute: PipeRoute,
@@ -305,6 +327,7 @@ export const routeTree = rootRoute
         "/add",
         "/div",
         "/install",
+        "/max",
         "/mean",
         "/mul",
         "/pipe",
@@ -325,6 +348,9 @@ export const routeTree = rootRoute
     },
     "/install": {
       "filePath": "install.tsx"
+    },
+    "/max": {
+      "filePath": "max.tsx"
     },
     "/mean": {
       "filePath": "mean.tsx"
