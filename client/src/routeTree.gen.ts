@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ToBaseImport } from './routes/toBase'
 import { Route as SubImport } from './routes/sub'
 import { Route as SqrtImport } from './routes/sqrt'
 import { Route as SortImport } from './routes/sort'
@@ -34,6 +35,12 @@ import { Route as AbsImport } from './routes/abs'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const ToBaseRoute = ToBaseImport.update({
+  id: '/toBase',
+  path: '/toBase',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SubRoute = SubImport.update({
   id: '/sub',
@@ -312,6 +319,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SubImport
       parentRoute: typeof rootRoute
     }
+    '/toBase': {
+      id: '/toBase'
+      path: '/toBase'
+      fullPath: '/toBase'
+      preLoaderRoute: typeof ToBaseImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -339,6 +353,7 @@ export interface FileRoutesByFullPath {
   '/sort': typeof SortRoute
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
+  '/toBase': typeof ToBaseRoute
 }
 
 export interface FileRoutesByTo {
@@ -363,6 +378,7 @@ export interface FileRoutesByTo {
   '/sort': typeof SortRoute
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
+  '/toBase': typeof ToBaseRoute
 }
 
 export interface FileRoutesById {
@@ -388,6 +404,7 @@ export interface FileRoutesById {
   '/sort': typeof SortRoute
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
+  '/toBase': typeof ToBaseRoute
 }
 
 export interface FileRouteTypes {
@@ -414,6 +431,7 @@ export interface FileRouteTypes {
     | '/sort'
     | '/sqrt'
     | '/sub'
+    | '/toBase'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -437,6 +455,7 @@ export interface FileRouteTypes {
     | '/sort'
     | '/sqrt'
     | '/sub'
+    | '/toBase'
   id:
     | '__root__'
     | '/'
@@ -460,6 +479,7 @@ export interface FileRouteTypes {
     | '/sort'
     | '/sqrt'
     | '/sub'
+    | '/toBase'
   fileRoutesById: FileRoutesById
 }
 
@@ -485,6 +505,7 @@ export interface RootRouteChildren {
   SortRoute: typeof SortRoute
   SqrtRoute: typeof SqrtRoute
   SubRoute: typeof SubRoute
+  ToBaseRoute: typeof ToBaseRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -509,6 +530,7 @@ const rootRouteChildren: RootRouteChildren = {
   SortRoute: SortRoute,
   SqrtRoute: SqrtRoute,
   SubRoute: SubRoute,
+  ToBaseRoute: ToBaseRoute,
 }
 
 export const routeTree = rootRoute
@@ -541,7 +563,8 @@ export const routeTree = rootRoute
         "/round",
         "/sort",
         "/sqrt",
-        "/sub"
+        "/sub",
+        "/toBase"
       ]
     },
     "/": {
@@ -606,6 +629,9 @@ export const routeTree = rootRoute
     },
     "/sub": {
       "filePath": "sub.tsx"
+    },
+    "/toBase": {
+      "filePath": "toBase.tsx"
     }
   }
 }

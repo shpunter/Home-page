@@ -1,8 +1,11 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@numio/bigmath@^2.2.1": "2.2.1",
+    "jsr:@hono/hono@^4.7.8": "4.7.8",
+    "jsr:@std/assert@^1.0.13": "1.0.13",
+    "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.4__picomatch@4.0.2",
+    "npm:@numio/bigmath@^2.2.3": "2.2.3",
     "npm:@tanstack/react-router-devtools@^1.119.1": "1.119.1_@tanstack+react-router@1.119.0__react@19.1.0__react-dom@19.1.0___react@19.1.0_react@19.1.0_react-dom@19.1.0__react@19.1.0_solid-js@1.9.6__seroval@1.2.1",
     "npm:@tanstack/react-router@^1.119.0": "1.119.0_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:@tanstack/router-plugin@^1.119.0": "1.119.0_@tanstack+react-router@1.119.0__react@19.1.0__react-dom@19.1.0___react@19.1.0_vite@6.3.4__picomatch@4.0.2_@babel+core@7.27.1_react@19.1.0_react-dom@19.1.0__react@19.1.0",
@@ -16,8 +19,17 @@
     "npm:vite@^6.3.2": "6.3.4_picomatch@4.0.2"
   },
   "jsr": {
-    "@numio/bigmath@2.2.1": {
-      "integrity": "c21d746cd55c8e0c4cdea103dd7f644057fb16a83e79a8497ce20e199b7e731c"
+    "@hono/hono@4.7.8": {
+      "integrity": "620b1eaab065196d4ebe02cff31f8d3a78c94f736ce2ca86ee14f5f26fe48ecd"
+    },
+    "@std/assert@1.0.13": {
+      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.6": {
+      "integrity": "9533b128f230f73bd209408bb07a4b12f8d4255ab2a4d22a1fd6d87304aca9a4"
     }
   },
   "npm": {
@@ -333,6 +345,9 @@
         "@jridgewell/resolve-uri",
         "@jridgewell/sourcemap-codec"
       ]
+    },
+    "@numio/bigmath@2.2.3": {
+      "integrity": "sha512-IjF8IErXr/p/czB8WU/MZfrPzCCmnzdWKamcPLUZm7uxuEXVhfx6ysb5R7zyRvIMwu2mphZVDSYGX6WMuYmZpg=="
     },
     "@rollup/rollup-android-arm-eabi@4.40.1": {
       "integrity": "sha512-kxz0YeeCrRUHz3zyqvd7n+TVRlNyTifBsmnmNPtk3hQURUyG9eAB+usz6DAwagMusjx/zb3AjvDUvhFGDAexGw==",
@@ -1132,9 +1147,9 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.7.8",
-      "jsr:@numio/bigmath@^2.2.1",
       "jsr:@std/assert@^1.0.13",
       "npm:@deno/vite-plugin@^1.0.4",
+      "npm:@numio/bigmath@^2.2.3",
       "npm:@tanstack/react-router-devtools@^1.119.1",
       "npm:@tanstack/react-router@^1.119.0",
       "npm:@tanstack/router-plugin@^1.119.0",
