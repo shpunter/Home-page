@@ -56,7 +56,7 @@ const SqrtDoc = () => {
           the maximum possible precision.
         </li>
         <li>
-          If the input number is negative, the function returns "0".
+          If the input number is negative, the function throws an error.
         </li>
       </ul>
       <h3>Examples</h3>

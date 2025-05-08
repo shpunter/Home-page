@@ -28,7 +28,8 @@ const Root = () => {
     { path: "/cbrt", label: "cbrt" },
     { path: "/abs", label: "abs" },
     { path: "/toBase", label: "toBase" },
-    { path: "/isHex", label: "isHex" },    
+    { path: "/isHex", label: "isHex" }, 
+    { path: "/isBinary", label: "isBinary" },        
   ];
 
   return (

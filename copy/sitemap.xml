@@ -88,8 +88,12 @@
     <loc>https://numio.deno.dev/toBase</loc>
     <lastmod>2025-05-08</lastmod>
   </url>
-    <url>
+  <url>
     <loc>https://numio.deno.dev/isHex</loc>
     <lastmod>2025-05-08</lastmod>
   </url>
+  <url>
+    <loc>https://numio.deno.dev/isBinary</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>  
 </urlset>
