@@ -25,6 +25,7 @@ import { Route as MaxImport } from './routes/max'
 import { Route as MadImport } from './routes/mad'
 import { Route as IsLeftGreaterOrEqualImport } from './routes/isLeftGreaterOrEqual'
 import { Route as IsLeftGreaterImport } from './routes/isLeftGreater'
+import { Route as IsHexImport } from './routes/isHex'
 import { Route as IsEqualImport } from './routes/isEqual'
 import { Route as IqrImport } from './routes/iqr'
 import { Route as InstallImport } from './routes/install'
@@ -117,6 +118,12 @@ const IsLeftGreaterOrEqualRoute = IsLeftGreaterOrEqualImport.update({
 const IsLeftGreaterRoute = IsLeftGreaterImport.update({
   id: '/isLeftGreater',
   path: '/isLeftGreater',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IsHexRoute = IsHexImport.update({
+  id: '/isHex',
+  path: '/isHex',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -226,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/isEqual'
       fullPath: '/isEqual'
       preLoaderRoute: typeof IsEqualImport
+      parentRoute: typeof rootRoute
+    }
+    '/isHex': {
+      id: '/isHex'
+      path: '/isHex'
+      fullPath: '/isHex'
+      preLoaderRoute: typeof IsHexImport
       parentRoute: typeof rootRoute
     }
     '/isLeftGreater': {
@@ -340,6 +354,7 @@ export interface FileRoutesByFullPath {
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
   '/isEqual': typeof IsEqualRoute
+  '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
   '/mad': typeof MadRoute
@@ -365,6 +380,7 @@ export interface FileRoutesByTo {
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
   '/isEqual': typeof IsEqualRoute
+  '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
   '/mad': typeof MadRoute
@@ -391,6 +407,7 @@ export interface FileRoutesById {
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
   '/isEqual': typeof IsEqualRoute
+  '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
   '/mad': typeof MadRoute
@@ -418,6 +435,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/iqr'
     | '/isEqual'
+    | '/isHex'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
     | '/mad'
@@ -442,6 +460,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/iqr'
     | '/isEqual'
+    | '/isHex'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
     | '/mad'
@@ -466,6 +485,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/iqr'
     | '/isEqual'
+    | '/isHex'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
     | '/mad'
@@ -492,6 +512,7 @@ export interface RootRouteChildren {
   InstallRoute: typeof InstallRoute
   IqrRoute: typeof IqrRoute
   IsEqualRoute: typeof IsEqualRoute
+  IsHexRoute: typeof IsHexRoute
   IsLeftGreaterRoute: typeof IsLeftGreaterRoute
   IsLeftGreaterOrEqualRoute: typeof IsLeftGreaterOrEqualRoute
   MadRoute: typeof MadRoute
@@ -517,6 +538,7 @@ const rootRouteChildren: RootRouteChildren = {
   InstallRoute: InstallRoute,
   IqrRoute: IqrRoute,
   IsEqualRoute: IsEqualRoute,
+  IsHexRoute: IsHexRoute,
   IsLeftGreaterRoute: IsLeftGreaterRoute,
   IsLeftGreaterOrEqualRoute: IsLeftGreaterOrEqualRoute,
   MadRoute: MadRoute,
@@ -551,6 +573,7 @@ export const routeTree = rootRoute
         "/install",
         "/iqr",
         "/isEqual",
+        "/isHex",
         "/isLeftGreater",
         "/isLeftGreaterOrEqual",
         "/mad",
@@ -590,6 +613,9 @@ export const routeTree = rootRoute
     },
     "/isEqual": {
       "filePath": "isEqual.tsx"
+    },
+    "/isHex": {
+      "filePath": "isHex.tsx"
     },
     "/isLeftGreater": {
       "filePath": "isLeftGreater.tsx"
