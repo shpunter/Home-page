@@ -13,10 +13,6 @@ async function handler(req: Request): Promise<Response> {
     showDirListing: false, // Disable directory listing
     enableCors: true, // Enable CORS for static files
     quiet: true, // Suppress logging for a cleaner output
-    headers: [
-      "Cache-Control: max-age=3600",
-      "Strict-Transport-Security: max-age=3600; includeSubDomains",
-    ],
   });
 
   // If the requested file is not found, serve index.html for SPA routing
