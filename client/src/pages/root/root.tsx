@@ -32,6 +32,7 @@ const Root = () => {
     { path: "/isBinary", label: "isBinary" },   
     { path: "/isDecimal", label: "isDecimal" }, 
     { path: "/isOctal", label: "isOctal" }, 
+    { path: "/isNumber", label: "isNumber" }, 
   ];
 
   return (

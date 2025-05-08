@@ -24,6 +24,7 @@ import { Route as MeanImport } from './routes/mean'
 import { Route as MaxImport } from './routes/max'
 import { Route as MadImport } from './routes/mad'
 import { Route as IsOctalImport } from './routes/isOctal'
+import { Route as IsNumberImport } from './routes/isNumber'
 import { Route as IsLeftGreaterOrEqualImport } from './routes/isLeftGreaterOrEqual'
 import { Route as IsLeftGreaterImport } from './routes/isLeftGreater'
 import { Route as IsHexImport } from './routes/isHex'
@@ -115,6 +116,12 @@ const MadRoute = MadImport.update({
 const IsOctalRoute = IsOctalImport.update({
   id: '/isOctal',
   path: '/isOctal',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IsNumberRoute = IsNumberImport.update({
+  id: '/isNumber',
+  path: '/isNumber',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -291,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IsLeftGreaterOrEqualImport
       parentRoute: typeof rootRoute
     }
+    '/isNumber': {
+      id: '/isNumber'
+      path: '/isNumber'
+      fullPath: '/isNumber'
+      preLoaderRoute: typeof IsNumberImport
+      parentRoute: typeof rootRoute
+    }
     '/isOctal': {
       id: '/isOctal'
       path: '/isOctal'
@@ -401,6 +415,7 @@ export interface FileRoutesByFullPath {
   '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
+  '/isNumber': typeof IsNumberRoute
   '/isOctal': typeof IsOctalRoute
   '/mad': typeof MadRoute
   '/max': typeof MaxRoute
@@ -430,6 +445,7 @@ export interface FileRoutesByTo {
   '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
+  '/isNumber': typeof IsNumberRoute
   '/isOctal': typeof IsOctalRoute
   '/mad': typeof MadRoute
   '/max': typeof MaxRoute
@@ -460,6 +476,7 @@ export interface FileRoutesById {
   '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
   '/isLeftGreaterOrEqual': typeof IsLeftGreaterOrEqualRoute
+  '/isNumber': typeof IsNumberRoute
   '/isOctal': typeof IsOctalRoute
   '/mad': typeof MadRoute
   '/max': typeof MaxRoute
@@ -491,6 +508,7 @@ export interface FileRouteTypes {
     | '/isHex'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
+    | '/isNumber'
     | '/isOctal'
     | '/mad'
     | '/max'
@@ -519,6 +537,7 @@ export interface FileRouteTypes {
     | '/isHex'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
+    | '/isNumber'
     | '/isOctal'
     | '/mad'
     | '/max'
@@ -547,6 +566,7 @@ export interface FileRouteTypes {
     | '/isHex'
     | '/isLeftGreater'
     | '/isLeftGreaterOrEqual'
+    | '/isNumber'
     | '/isOctal'
     | '/mad'
     | '/max'
@@ -577,6 +597,7 @@ export interface RootRouteChildren {
   IsHexRoute: typeof IsHexRoute
   IsLeftGreaterRoute: typeof IsLeftGreaterRoute
   IsLeftGreaterOrEqualRoute: typeof IsLeftGreaterOrEqualRoute
+  IsNumberRoute: typeof IsNumberRoute
   IsOctalRoute: typeof IsOctalRoute
   MadRoute: typeof MadRoute
   MaxRoute: typeof MaxRoute
@@ -606,6 +627,7 @@ const rootRouteChildren: RootRouteChildren = {
   IsHexRoute: IsHexRoute,
   IsLeftGreaterRoute: IsLeftGreaterRoute,
   IsLeftGreaterOrEqualRoute: IsLeftGreaterOrEqualRoute,
+  IsNumberRoute: IsNumberRoute,
   IsOctalRoute: IsOctalRoute,
   MadRoute: MadRoute,
   MaxRoute: MaxRoute,
@@ -644,6 +666,7 @@ export const routeTree = rootRoute
         "/isHex",
         "/isLeftGreater",
         "/isLeftGreaterOrEqual",
+        "/isNumber",
         "/isOctal",
         "/mad",
         "/max",
@@ -697,6 +720,9 @@ export const routeTree = rootRoute
     },
     "/isLeftGreaterOrEqual": {
       "filePath": "isLeftGreaterOrEqual.tsx"
+    },
+    "/isNumber": {
+      "filePath": "isNumber.tsx"
     },
     "/isOctal": {
       "filePath": "isOctal.tsx"
