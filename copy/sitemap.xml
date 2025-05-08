@@ -99,5 +99,9 @@
   <url>
     <loc>https://numio.deno.dev/isDecimal</loc>
     <lastmod>2025-05-08</lastmod>
-  </url>    
+  </url>  
+  <url>
+  <loc>https://numio.deno.dev/isOctal</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>     
 </urlset>
