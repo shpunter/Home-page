@@ -27,6 +27,7 @@ import { Route as IsLeftGreaterOrEqualImport } from './routes/isLeftGreaterOrEqu
 import { Route as IsLeftGreaterImport } from './routes/isLeftGreater'
 import { Route as IsHexImport } from './routes/isHex'
 import { Route as IsEqualImport } from './routes/isEqual'
+import { Route as IsDecimalImport } from './routes/isDecimal'
 import { Route as IsBinaryImport } from './routes/isBinary'
 import { Route as IqrImport } from './routes/iqr'
 import { Route as InstallImport } from './routes/install'
@@ -131,6 +132,12 @@ const IsHexRoute = IsHexImport.update({
 const IsEqualRoute = IsEqualImport.update({
   id: '/isEqual',
   path: '/isEqual',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IsDecimalRoute = IsDecimalImport.update({
+  id: '/isDecimal',
+  path: '/isDecimal',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -240,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/isBinary'
       fullPath: '/isBinary'
       preLoaderRoute: typeof IsBinaryImport
+      parentRoute: typeof rootRoute
+    }
+    '/isDecimal': {
+      id: '/isDecimal'
+      path: '/isDecimal'
+      fullPath: '/isDecimal'
+      preLoaderRoute: typeof IsDecimalImport
       parentRoute: typeof rootRoute
     }
     '/isEqual': {
@@ -368,6 +382,7 @@ export interface FileRoutesByFullPath {
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
   '/isBinary': typeof IsBinaryRoute
+  '/isDecimal': typeof IsDecimalRoute
   '/isEqual': typeof IsEqualRoute
   '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
@@ -395,6 +410,7 @@ export interface FileRoutesByTo {
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
   '/isBinary': typeof IsBinaryRoute
+  '/isDecimal': typeof IsDecimalRoute
   '/isEqual': typeof IsEqualRoute
   '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
@@ -423,6 +439,7 @@ export interface FileRoutesById {
   '/install': typeof InstallRoute
   '/iqr': typeof IqrRoute
   '/isBinary': typeof IsBinaryRoute
+  '/isDecimal': typeof IsDecimalRoute
   '/isEqual': typeof IsEqualRoute
   '/isHex': typeof IsHexRoute
   '/isLeftGreater': typeof IsLeftGreaterRoute
@@ -452,6 +469,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/iqr'
     | '/isBinary'
+    | '/isDecimal'
     | '/isEqual'
     | '/isHex'
     | '/isLeftGreater'
@@ -478,6 +496,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/iqr'
     | '/isBinary'
+    | '/isDecimal'
     | '/isEqual'
     | '/isHex'
     | '/isLeftGreater'
@@ -504,6 +523,7 @@ export interface FileRouteTypes {
     | '/install'
     | '/iqr'
     | '/isBinary'
+    | '/isDecimal'
     | '/isEqual'
     | '/isHex'
     | '/isLeftGreater'
@@ -532,6 +552,7 @@ export interface RootRouteChildren {
   InstallRoute: typeof InstallRoute
   IqrRoute: typeof IqrRoute
   IsBinaryRoute: typeof IsBinaryRoute
+  IsDecimalRoute: typeof IsDecimalRoute
   IsEqualRoute: typeof IsEqualRoute
   IsHexRoute: typeof IsHexRoute
   IsLeftGreaterRoute: typeof IsLeftGreaterRoute
@@ -559,6 +580,7 @@ const rootRouteChildren: RootRouteChildren = {
   InstallRoute: InstallRoute,
   IqrRoute: IqrRoute,
   IsBinaryRoute: IsBinaryRoute,
+  IsDecimalRoute: IsDecimalRoute,
   IsEqualRoute: IsEqualRoute,
   IsHexRoute: IsHexRoute,
   IsLeftGreaterRoute: IsLeftGreaterRoute,
@@ -595,6 +617,7 @@ export const routeTree = rootRoute
         "/install",
         "/iqr",
         "/isBinary",
+        "/isDecimal",
         "/isEqual",
         "/isHex",
         "/isLeftGreater",
@@ -636,6 +659,9 @@ export const routeTree = rootRoute
     },
     "/isBinary": {
       "filePath": "isBinary.tsx"
+    },
+    "/isDecimal": {
+      "filePath": "isDecimal.tsx"
     },
     "/isEqual": {
       "filePath": "isEqual.tsx"

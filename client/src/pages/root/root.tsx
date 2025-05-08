@@ -29,7 +29,8 @@ const Root = () => {
     { path: "/abs", label: "abs" },
     { path: "/toBase", label: "toBase" },
     { path: "/isHex", label: "isHex" }, 
-    { path: "/isBinary", label: "isBinary" },        
+    { path: "/isBinary", label: "isBinary" },   
+    { path: "/isDecimal", label: "isDecimal" }, 
   ];
 
   return (
