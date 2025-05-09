@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
+import DocSkeleton from "/client/src/UI/skeleton/docSkeleton/docSkeleton.tsx";
 
 const SubtractionDoc = lazy(() =>
   import("/client/src/pages/subtraction/subtraction.tsx")
@@ -8,7 +9,7 @@ const SubtractionDoc = lazy(() =>
 export const Route = createFileRoute("/sub")({
   component: () => {
     return (
-      <Suspense fallback={<span>loading</span>}>
+      <Suspense fallback={<DocSkeleton />}>
         <SubtractionDoc />
       </Suspense>
     );
