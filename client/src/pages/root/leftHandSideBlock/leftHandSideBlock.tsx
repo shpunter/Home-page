@@ -30,6 +30,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
     { path: "/isDecimal", label: "isDecimal" },
     { path: "/isOctal", label: "isOctal" },
     { path: "/isNumber", label: "isNumber" },
+    { path: "/performance?fn=add&num=int&size=sm", label: "performance" },
   ];
 
   return (

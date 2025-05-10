@@ -18,6 +18,7 @@ import { Route as SortImport } from './routes/sort'
 import { Route as RoundImport } from './routes/round'
 import { Route as QuartileImport } from './routes/quartile'
 import { Route as PipeImport } from './routes/pipe'
+import { Route as PerformanceImport } from './routes/performance'
 import { Route as MulImport } from './routes/mul'
 import { Route as MinImport } from './routes/min'
 import { Route as MeanImport } from './routes/mean'
@@ -80,6 +81,12 @@ const QuartileRoute = QuartileImport.update({
 const PipeRoute = PipeImport.update({
   id: '/pipe',
   path: '/pipe',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PerformanceRoute = PerformanceImport.update({
+  id: '/performance',
+  path: '/performance',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -347,6 +354,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MulImport
       parentRoute: typeof rootRoute
     }
+    '/performance': {
+      id: '/performance'
+      path: '/performance'
+      fullPath: '/performance'
+      preLoaderRoute: typeof PerformanceImport
+      parentRoute: typeof rootRoute
+    }
     '/pipe': {
       id: '/pipe'
       path: '/pipe'
@@ -422,6 +436,7 @@ export interface FileRoutesByFullPath {
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
   '/mul': typeof MulRoute
+  '/performance': typeof PerformanceRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
@@ -452,6 +467,7 @@ export interface FileRoutesByTo {
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
   '/mul': typeof MulRoute
+  '/performance': typeof PerformanceRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
@@ -483,6 +499,7 @@ export interface FileRoutesById {
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
   '/mul': typeof MulRoute
+  '/performance': typeof PerformanceRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
@@ -515,6 +532,7 @@ export interface FileRouteTypes {
     | '/mean'
     | '/min'
     | '/mul'
+    | '/performance'
     | '/pipe'
     | '/quartile'
     | '/round'
@@ -544,6 +562,7 @@ export interface FileRouteTypes {
     | '/mean'
     | '/min'
     | '/mul'
+    | '/performance'
     | '/pipe'
     | '/quartile'
     | '/round'
@@ -573,6 +592,7 @@ export interface FileRouteTypes {
     | '/mean'
     | '/min'
     | '/mul'
+    | '/performance'
     | '/pipe'
     | '/quartile'
     | '/round'
@@ -604,6 +624,7 @@ export interface RootRouteChildren {
   MeanRoute: typeof MeanRoute
   MinRoute: typeof MinRoute
   MulRoute: typeof MulRoute
+  PerformanceRoute: typeof PerformanceRoute
   PipeRoute: typeof PipeRoute
   QuartileRoute: typeof QuartileRoute
   RoundRoute: typeof RoundRoute
@@ -634,6 +655,7 @@ const rootRouteChildren: RootRouteChildren = {
   MeanRoute: MeanRoute,
   MinRoute: MinRoute,
   MulRoute: MulRoute,
+  PerformanceRoute: PerformanceRoute,
   PipeRoute: PipeRoute,
   QuartileRoute: QuartileRoute,
   RoundRoute: RoundRoute,
@@ -673,6 +695,7 @@ export const routeTree = rootRoute
         "/mean",
         "/min",
         "/mul",
+        "/performance",
         "/pipe",
         "/quartile",
         "/round",
@@ -741,6 +764,9 @@ export const routeTree = rootRoute
     },
     "/mul": {
       "filePath": "mul.tsx"
+    },
+    "/performance": {
+      "filePath": "performance.tsx"
     },
     "/pipe": {
       "filePath": "pipe.tsx"

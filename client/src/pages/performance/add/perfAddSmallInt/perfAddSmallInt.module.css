@@ -1,0 +1,17 @@
+.benchmark-result {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 200px 110px 110px 110px;
+  justify-items: end;
+  
+  padding: 12px 16px 8px 0;
+  border: solid rgb(211, 211, 211) 1px;
+  border-radius: 6px;
+  overflow: auto;
+
+  background-color: rgb(245, 245, 245);
+}
+
+.mark-down {
+  padding: 70px 0 0 0;
+  border-bottom: 1px solid #d8dee4;
+}

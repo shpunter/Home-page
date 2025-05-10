@@ -80,7 +80,7 @@ const AdditionDoc = () => {
       <h3>Examples</h3>
       <h3>1. Adding Integers</h3>
       <CodeBlock>
-        {`import {add} from '@numio/bigmath';
+        {`import { add } from '@numio/bigmath';
 
 const sum = add(["10", "20", "30"]);
 console.log(sum); // Output: "60"`}

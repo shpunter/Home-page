@@ -5,8 +5,7 @@ const Home = () => {
       <p>
         Do you struggle with inaccurate calculations involving very large or
         very small numbers, or decimal numbers with high precision in
-        JavaScript?{" "}
-        <strong>@numio/bigmath</strong>{" "}
+        JavaScript? <strong>@numio/bigmath</strong>{" "}
         is your solution! This library provides a robust set of functions for
         performing{" "}
         <strong>arbitrary-precision arithmetic</strong>, effectively overcoming
@@ -242,6 +241,17 @@ const Home = () => {
           by the library (decimal, hexadecimal, binary, octal).
         </li>
       </ul>
+
+      <br />
+      Download from{" "}
+      <a href="https://www.npmjs.com/package/@numio/bigmath">
+        NPM
+      </a>
+      <br />
+      Download from{" "}
+      <a href="https://jsr.io/@numio/bigmath">
+        JSR
+      </a>
     </>
   );
 };
