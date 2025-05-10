@@ -2,15 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import DocSkeleton from "/client/src/UI/skeleton/docSkeleton/docSkeleton.tsx";
 
-const PerfAddSmallInt = lazy(() =>
-  import("/client/src/pages/performance/add/perfAddSmallInt/perfAddSmallInt.tsx")
+const Hex = lazy(() =>
+  import(
+    "/client/src/pages/performance/add/sm/int/hex/hex.tsx"
+  )
 );
 
-export const Route = createFileRoute("/performance")({
+export const Route = createFileRoute("/performance/add/sm/int/hex")({
   component: () => {
     return (
       <Suspense fallback={<DocSkeleton />}>
-        <PerfAddSmallInt />
+        <Hex />
       </Suspense>
     );
   },

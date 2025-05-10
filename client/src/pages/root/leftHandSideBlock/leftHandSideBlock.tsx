@@ -30,14 +30,15 @@ const LeftHandSideBlock = ({ className }: Props) => {
     { path: "/isDecimal", label: "isDecimal" },
     { path: "/isOctal", label: "isOctal" },
     { path: "/isNumber", label: "isNumber" },
-    { path: "/performance?fn=add&num=int&size=sm", label: "performance" },
+    { path: "/performance/add/sm/int/decimal", label: "Perf small int dec" },
+    { path: "/performance/add/sm/int/hex", label: "Perf small int hex" },
   ];
 
   return (
     <Menu className={className}>
       {links.map((link) => {
         return (
-          <Item path={link.path}>
+          <Item key={link.path} path={link.path}>
             <span>{link.label}</span>
           </Item>
         );

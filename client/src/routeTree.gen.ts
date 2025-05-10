@@ -18,7 +18,6 @@ import { Route as SortImport } from './routes/sort'
 import { Route as RoundImport } from './routes/round'
 import { Route as QuartileImport } from './routes/quartile'
 import { Route as PipeImport } from './routes/pipe'
-import { Route as PerformanceImport } from './routes/performance'
 import { Route as MulImport } from './routes/mul'
 import { Route as MinImport } from './routes/min'
 import { Route as MeanImport } from './routes/mean'
@@ -39,6 +38,8 @@ import { Route as CbrtImport } from './routes/cbrt'
 import { Route as AddImport } from './routes/add'
 import { Route as AbsImport } from './routes/abs'
 import { Route as IndexImport } from './routes/index'
+import { Route as PerformanceAddSmIntHexImport } from './routes/performance/add/sm/int/hex'
+import { Route as PerformanceAddSmIntDecimalImport } from './routes/performance/add/sm/int/decimal'
 
 // Create/Update Routes
 
@@ -81,12 +82,6 @@ const QuartileRoute = QuartileImport.update({
 const PipeRoute = PipeImport.update({
   id: '/pipe',
   path: '/pipe',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PerformanceRoute = PerformanceImport.update({
-  id: '/performance',
-  path: '/performance',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -209,6 +204,20 @@ const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const PerformanceAddSmIntHexRoute = PerformanceAddSmIntHexImport.update({
+  id: '/performance/add/sm/int/hex',
+  path: '/performance/add/sm/int/hex',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PerformanceAddSmIntDecimalRoute = PerformanceAddSmIntDecimalImport.update(
+  {
+    id: '/performance/add/sm/int/decimal',
+    path: '/performance/add/sm/int/decimal',
+    getParentRoute: () => rootRoute,
+  } as any,
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -354,13 +363,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MulImport
       parentRoute: typeof rootRoute
     }
-    '/performance': {
-      id: '/performance'
-      path: '/performance'
-      fullPath: '/performance'
-      preLoaderRoute: typeof PerformanceImport
-      parentRoute: typeof rootRoute
-    }
     '/pipe': {
       id: '/pipe'
       path: '/pipe'
@@ -410,6 +412,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToBaseImport
       parentRoute: typeof rootRoute
     }
+    '/performance/add/sm/int/decimal': {
+      id: '/performance/add/sm/int/decimal'
+      path: '/performance/add/sm/int/decimal'
+      fullPath: '/performance/add/sm/int/decimal'
+      preLoaderRoute: typeof PerformanceAddSmIntDecimalImport
+      parentRoute: typeof rootRoute
+    }
+    '/performance/add/sm/int/hex': {
+      id: '/performance/add/sm/int/hex'
+      path: '/performance/add/sm/int/hex'
+      fullPath: '/performance/add/sm/int/hex'
+      preLoaderRoute: typeof PerformanceAddSmIntHexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -436,7 +452,6 @@ export interface FileRoutesByFullPath {
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
   '/mul': typeof MulRoute
-  '/performance': typeof PerformanceRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
@@ -444,6 +459,8 @@ export interface FileRoutesByFullPath {
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
   '/toBase': typeof ToBaseRoute
+  '/performance/add/sm/int/decimal': typeof PerformanceAddSmIntDecimalRoute
+  '/performance/add/sm/int/hex': typeof PerformanceAddSmIntHexRoute
 }
 
 export interface FileRoutesByTo {
@@ -467,7 +484,6 @@ export interface FileRoutesByTo {
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
   '/mul': typeof MulRoute
-  '/performance': typeof PerformanceRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
@@ -475,6 +491,8 @@ export interface FileRoutesByTo {
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
   '/toBase': typeof ToBaseRoute
+  '/performance/add/sm/int/decimal': typeof PerformanceAddSmIntDecimalRoute
+  '/performance/add/sm/int/hex': typeof PerformanceAddSmIntHexRoute
 }
 
 export interface FileRoutesById {
@@ -499,7 +517,6 @@ export interface FileRoutesById {
   '/mean': typeof MeanRoute
   '/min': typeof MinRoute
   '/mul': typeof MulRoute
-  '/performance': typeof PerformanceRoute
   '/pipe': typeof PipeRoute
   '/quartile': typeof QuartileRoute
   '/round': typeof RoundRoute
@@ -507,6 +524,8 @@ export interface FileRoutesById {
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
   '/toBase': typeof ToBaseRoute
+  '/performance/add/sm/int/decimal': typeof PerformanceAddSmIntDecimalRoute
+  '/performance/add/sm/int/hex': typeof PerformanceAddSmIntHexRoute
 }
 
 export interface FileRouteTypes {
@@ -532,7 +551,6 @@ export interface FileRouteTypes {
     | '/mean'
     | '/min'
     | '/mul'
-    | '/performance'
     | '/pipe'
     | '/quartile'
     | '/round'
@@ -540,6 +558,8 @@ export interface FileRouteTypes {
     | '/sqrt'
     | '/sub'
     | '/toBase'
+    | '/performance/add/sm/int/decimal'
+    | '/performance/add/sm/int/hex'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -562,7 +582,6 @@ export interface FileRouteTypes {
     | '/mean'
     | '/min'
     | '/mul'
-    | '/performance'
     | '/pipe'
     | '/quartile'
     | '/round'
@@ -570,6 +589,8 @@ export interface FileRouteTypes {
     | '/sqrt'
     | '/sub'
     | '/toBase'
+    | '/performance/add/sm/int/decimal'
+    | '/performance/add/sm/int/hex'
   id:
     | '__root__'
     | '/'
@@ -592,7 +613,6 @@ export interface FileRouteTypes {
     | '/mean'
     | '/min'
     | '/mul'
-    | '/performance'
     | '/pipe'
     | '/quartile'
     | '/round'
@@ -600,6 +620,8 @@ export interface FileRouteTypes {
     | '/sqrt'
     | '/sub'
     | '/toBase'
+    | '/performance/add/sm/int/decimal'
+    | '/performance/add/sm/int/hex'
   fileRoutesById: FileRoutesById
 }
 
@@ -624,7 +646,6 @@ export interface RootRouteChildren {
   MeanRoute: typeof MeanRoute
   MinRoute: typeof MinRoute
   MulRoute: typeof MulRoute
-  PerformanceRoute: typeof PerformanceRoute
   PipeRoute: typeof PipeRoute
   QuartileRoute: typeof QuartileRoute
   RoundRoute: typeof RoundRoute
@@ -632,6 +653,8 @@ export interface RootRouteChildren {
   SqrtRoute: typeof SqrtRoute
   SubRoute: typeof SubRoute
   ToBaseRoute: typeof ToBaseRoute
+  PerformanceAddSmIntDecimalRoute: typeof PerformanceAddSmIntDecimalRoute
+  PerformanceAddSmIntHexRoute: typeof PerformanceAddSmIntHexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -655,7 +678,6 @@ const rootRouteChildren: RootRouteChildren = {
   MeanRoute: MeanRoute,
   MinRoute: MinRoute,
   MulRoute: MulRoute,
-  PerformanceRoute: PerformanceRoute,
   PipeRoute: PipeRoute,
   QuartileRoute: QuartileRoute,
   RoundRoute: RoundRoute,
@@ -663,6 +685,8 @@ const rootRouteChildren: RootRouteChildren = {
   SqrtRoute: SqrtRoute,
   SubRoute: SubRoute,
   ToBaseRoute: ToBaseRoute,
+  PerformanceAddSmIntDecimalRoute: PerformanceAddSmIntDecimalRoute,
+  PerformanceAddSmIntHexRoute: PerformanceAddSmIntHexRoute,
 }
 
 export const routeTree = rootRoute
@@ -695,14 +719,15 @@ export const routeTree = rootRoute
         "/mean",
         "/min",
         "/mul",
-        "/performance",
         "/pipe",
         "/quartile",
         "/round",
         "/sort",
         "/sqrt",
         "/sub",
-        "/toBase"
+        "/toBase",
+        "/performance/add/sm/int/decimal",
+        "/performance/add/sm/int/hex"
       ]
     },
     "/": {
@@ -765,9 +790,6 @@ export const routeTree = rootRoute
     "/mul": {
       "filePath": "mul.tsx"
     },
-    "/performance": {
-      "filePath": "performance.tsx"
-    },
     "/pipe": {
       "filePath": "pipe.tsx"
     },
@@ -788,6 +810,12 @@ export const routeTree = rootRoute
     },
     "/toBase": {
       "filePath": "toBase.tsx"
+    },
+    "/performance/add/sm/int/decimal": {
+      "filePath": "performance/add/sm/int/decimal.tsx"
+    },
+    "/performance/add/sm/int/hex": {
+      "filePath": "performance/add/sm/int/hex.tsx"
     }
   }
 }

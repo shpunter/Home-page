@@ -1,13 +1,15 @@
-.loading-skeleton div {
+.loading-skeleton span {
   background-color: #ddd;
   animation: loading 1.5s infinite;
   border-radius: 4px;
+
+  display: inline-block;
 }
 
 .loading-skeleton {
   color: transparent;
 
-  h2 > div {
+  h2 > span {
     height: 1.3em;
   }
 
@@ -15,11 +17,11 @@
     padding: 16px 0 0 0;
   }
 
-  h3 > div {
+  h3 > span {
     height: 1.2em;
   }
 
-  p > div, div {
+  p > span, span {
     height: 1em;
   }
 
@@ -46,42 +48,42 @@
   }
 }
 
-div.w200px {
+span.w200px {
   width: 200px;
 }
 
-div.w300px {
+span.w300px {
   width: 300px;
 }
 
-div.w250px {
+span.w250px {
   width: 250px;
 }
 
-div.w200px {
+span.w200px {
   width: 200px;
 }
 
-div.w100px {
+span.w100px {
   width: 100px;
 }
 
-div.w100 {
+span.w100 {
   width: 100%;
 }
 
-div.w75 {
+span.w75 {
   width: 75%;
 }
 
-div.w30 {
+span.w30 {
   width: 30%;
 }
 
-div.h100px {
+span.h100px {
   height: 100px;
 }
 
-div.h150px {
+span.h150px {
   height: 150px;
 }

@@ -28,17 +28,17 @@ const IsBinaryDoc = () => {
       <h3>Return Value</h3>
       <p>
         The function returns a boolean value:
-        <ul>
-          <li>
-            <code>true</code>{" "}
-            if the input string is a valid binary number according to the
-            defined format.
-          </li>
-          <li>
-            <code>false</code> otherwise.
-          </li>
-        </ul>
       </p>
+      <ul>
+        <li>
+          <code>true</code>{" "}
+          if the input string is a valid binary number according to the defined
+          format.
+        </li>
+        <li>
+          <code>false</code> otherwise.
+        </li>
+      </ul>
       <h3>Behavior</h3>
       <ul>
         <li>

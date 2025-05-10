@@ -1,14 +1,14 @@
 import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
-import css from "./perfAddSmallInt.module.css";
+import css from "../perfAddSmallInt.module.css";
 
-const PerfAddSmallInt = () => {
+const Decimal = () => {
   return (
     <div className="performance-comparison">
-      <h1>Performance: Small Integer Addition</h1>
+      <h1>Performance: Small Integer Decimal Addition</h1>
       <p>
         Exploring the performance of adding numbers (small integer{" "}
-        <code>{999}</code>) using{" "}
-        <code>@numio/bigmath</code> vs <code>BigNumber.js</code>.
+        <code>{999}</code>) using <code>@numio/bigmath</code> vs{" "}
+        <code>BigNumber.js</code>.
       </p>
       <code>
         CPU | AMD Ryzen 7 8845HS w/ Radeon 780M Graphics
@@ -222,13 +222,11 @@ Deno.bench("BigNumber,      array10_000_000", () => {
       <p>
         Even when dealing with a small integer like{" "}
         <code>{999}</code>, the performance differences between{" "}
-        <code>@numio/bigmath</code> and{" "}
-        <code>BigNumber.js</code>{" "}
+        <code>@numio/bigmath</code> and <code>BigNumber.js</code>{" "}
         are noticeable. The benchmarks consistently show that{" "}
         <code>@numio/bigmath</code>{" "}
         exhibits faster addition operations across varying array sizes. This
-        suggests that{" "}
-        <code>@numio/bigmath</code>{" "}
+        suggests that <code>@numio/bigmath</code>{" "}
         might have optimizations that benefit even relatively simple arithmetic
         tasks.
       </p>
@@ -243,4 +241,4 @@ Deno.bench("BigNumber,      array10_000_000", () => {
   );
 };
 
-export default PerfAddSmallInt;
+export default Decimal;
