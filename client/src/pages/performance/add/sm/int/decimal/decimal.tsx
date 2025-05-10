@@ -172,7 +172,7 @@ Deno.bench("BigNumber,      array1_000_000", () => {
       <CodeBlock language="javascript">
         {`// Set up
 const int = "999";
-const array10_000_000 = Array(array10_000_000).fill(int);
+const array10_000_000 = Array(10_000_000).fill(int);
 
 Deno.bench("@numio/bigmath, array10_000_000", () => {
   add(array10_000_000);
