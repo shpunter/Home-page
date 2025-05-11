@@ -101,10 +101,31 @@
     <lastmod>2025-05-08</lastmod>
   </url>  
   <url>
-  <loc>https://numio.deno.dev/isOctal</loc>
+    <loc>https://numio.deno.dev/isOctal</loc>
     <lastmod>2025-05-08</lastmod>
   </url>  
-  <loc>https://numio.deno.dev/isNumber</loc>
+  <url>
+    <loc>https://numio.deno.dev/isNumber</loc>
     <lastmod>2025-05-08</lastmod>
-  </url>   
+  </url>  
+  <url>
+    <loc>https://numio.deno.dev/performance/add/sm/int/decimal</loc>
+    <lastmod>2025-05-11</lastmod>
+  </url> 
+  <url>
+    <loc>https://numio.deno.dev/performance/add/sm/int/hex</loc>
+    <lastmod>2025-05-11</lastmod>
+  </url>    
+  <url>
+    <loc>https://numio.deno.dev/performance/add/sm/int/isBinary</loc>
+    <lastmod>2025-05-11</lastmod>
+  </url> 
+  <url>
+    <loc>https://numio.deno.dev/performance/add/sm/int/octal</loc>
+    <lastmod>2025-05-11</lastmod>
+  </url> 
+  <url>
+    <loc>https://numio.deno.dev/performance/add/sm/int/decimal</loc>
+    <lastmod>2025-05-11</lastmod>
+  </url> 
 </urlset>

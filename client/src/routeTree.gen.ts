@@ -38,8 +38,11 @@ import { Route as CbrtImport } from './routes/cbrt'
 import { Route as AddImport } from './routes/add'
 import { Route as AbsImport } from './routes/abs'
 import { Route as IndexImport } from './routes/index'
+import { Route as PerformanceAddSmIntOctalImport } from './routes/performance/add/sm/int/octal'
 import { Route as PerformanceAddSmIntHexImport } from './routes/performance/add/sm/int/hex'
 import { Route as PerformanceAddSmIntDecimalImport } from './routes/performance/add/sm/int/decimal'
+import { Route as PerformanceAddSmIntBinaryImport } from './routes/performance/add/sm/int/binary'
+import { Route as PerformanceAddSmFloatDecimalImport } from './routes/performance/add/sm/float/decimal'
 
 // Create/Update Routes
 
@@ -205,6 +208,12 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const PerformanceAddSmIntOctalRoute = PerformanceAddSmIntOctalImport.update({
+  id: '/performance/add/sm/int/octal',
+  path: '/performance/add/sm/int/octal',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const PerformanceAddSmIntHexRoute = PerformanceAddSmIntHexImport.update({
   id: '/performance/add/sm/int/hex',
   path: '/performance/add/sm/int/hex',
@@ -218,6 +227,19 @@ const PerformanceAddSmIntDecimalRoute = PerformanceAddSmIntDecimalImport.update(
     getParentRoute: () => rootRoute,
   } as any,
 )
+
+const PerformanceAddSmIntBinaryRoute = PerformanceAddSmIntBinaryImport.update({
+  id: '/performance/add/sm/int/binary',
+  path: '/performance/add/sm/int/binary',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PerformanceAddSmFloatDecimalRoute =
+  PerformanceAddSmFloatDecimalImport.update({
+    id: '/performance/add/sm/float/decimal',
+    path: '/performance/add/sm/float/decimal',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -412,6 +434,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToBaseImport
       parentRoute: typeof rootRoute
     }
+    '/performance/add/sm/float/decimal': {
+      id: '/performance/add/sm/float/decimal'
+      path: '/performance/add/sm/float/decimal'
+      fullPath: '/performance/add/sm/float/decimal'
+      preLoaderRoute: typeof PerformanceAddSmFloatDecimalImport
+      parentRoute: typeof rootRoute
+    }
+    '/performance/add/sm/int/binary': {
+      id: '/performance/add/sm/int/binary'
+      path: '/performance/add/sm/int/binary'
+      fullPath: '/performance/add/sm/int/binary'
+      preLoaderRoute: typeof PerformanceAddSmIntBinaryImport
+      parentRoute: typeof rootRoute
+    }
     '/performance/add/sm/int/decimal': {
       id: '/performance/add/sm/int/decimal'
       path: '/performance/add/sm/int/decimal'
@@ -424,6 +460,13 @@ declare module '@tanstack/react-router' {
       path: '/performance/add/sm/int/hex'
       fullPath: '/performance/add/sm/int/hex'
       preLoaderRoute: typeof PerformanceAddSmIntHexImport
+      parentRoute: typeof rootRoute
+    }
+    '/performance/add/sm/int/octal': {
+      id: '/performance/add/sm/int/octal'
+      path: '/performance/add/sm/int/octal'
+      fullPath: '/performance/add/sm/int/octal'
+      preLoaderRoute: typeof PerformanceAddSmIntOctalImport
       parentRoute: typeof rootRoute
     }
   }
@@ -459,8 +502,11 @@ export interface FileRoutesByFullPath {
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
   '/toBase': typeof ToBaseRoute
+  '/performance/add/sm/float/decimal': typeof PerformanceAddSmFloatDecimalRoute
+  '/performance/add/sm/int/binary': typeof PerformanceAddSmIntBinaryRoute
   '/performance/add/sm/int/decimal': typeof PerformanceAddSmIntDecimalRoute
   '/performance/add/sm/int/hex': typeof PerformanceAddSmIntHexRoute
+  '/performance/add/sm/int/octal': typeof PerformanceAddSmIntOctalRoute
 }
 
 export interface FileRoutesByTo {
@@ -491,8 +537,11 @@ export interface FileRoutesByTo {
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
   '/toBase': typeof ToBaseRoute
+  '/performance/add/sm/float/decimal': typeof PerformanceAddSmFloatDecimalRoute
+  '/performance/add/sm/int/binary': typeof PerformanceAddSmIntBinaryRoute
   '/performance/add/sm/int/decimal': typeof PerformanceAddSmIntDecimalRoute
   '/performance/add/sm/int/hex': typeof PerformanceAddSmIntHexRoute
+  '/performance/add/sm/int/octal': typeof PerformanceAddSmIntOctalRoute
 }
 
 export interface FileRoutesById {
@@ -524,8 +573,11 @@ export interface FileRoutesById {
   '/sqrt': typeof SqrtRoute
   '/sub': typeof SubRoute
   '/toBase': typeof ToBaseRoute
+  '/performance/add/sm/float/decimal': typeof PerformanceAddSmFloatDecimalRoute
+  '/performance/add/sm/int/binary': typeof PerformanceAddSmIntBinaryRoute
   '/performance/add/sm/int/decimal': typeof PerformanceAddSmIntDecimalRoute
   '/performance/add/sm/int/hex': typeof PerformanceAddSmIntHexRoute
+  '/performance/add/sm/int/octal': typeof PerformanceAddSmIntOctalRoute
 }
 
 export interface FileRouteTypes {
@@ -558,8 +610,11 @@ export interface FileRouteTypes {
     | '/sqrt'
     | '/sub'
     | '/toBase'
+    | '/performance/add/sm/float/decimal'
+    | '/performance/add/sm/int/binary'
     | '/performance/add/sm/int/decimal'
     | '/performance/add/sm/int/hex'
+    | '/performance/add/sm/int/octal'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -589,8 +644,11 @@ export interface FileRouteTypes {
     | '/sqrt'
     | '/sub'
     | '/toBase'
+    | '/performance/add/sm/float/decimal'
+    | '/performance/add/sm/int/binary'
     | '/performance/add/sm/int/decimal'
     | '/performance/add/sm/int/hex'
+    | '/performance/add/sm/int/octal'
   id:
     | '__root__'
     | '/'
@@ -620,8 +678,11 @@ export interface FileRouteTypes {
     | '/sqrt'
     | '/sub'
     | '/toBase'
+    | '/performance/add/sm/float/decimal'
+    | '/performance/add/sm/int/binary'
     | '/performance/add/sm/int/decimal'
     | '/performance/add/sm/int/hex'
+    | '/performance/add/sm/int/octal'
   fileRoutesById: FileRoutesById
 }
 
@@ -653,8 +714,11 @@ export interface RootRouteChildren {
   SqrtRoute: typeof SqrtRoute
   SubRoute: typeof SubRoute
   ToBaseRoute: typeof ToBaseRoute
+  PerformanceAddSmFloatDecimalRoute: typeof PerformanceAddSmFloatDecimalRoute
+  PerformanceAddSmIntBinaryRoute: typeof PerformanceAddSmIntBinaryRoute
   PerformanceAddSmIntDecimalRoute: typeof PerformanceAddSmIntDecimalRoute
   PerformanceAddSmIntHexRoute: typeof PerformanceAddSmIntHexRoute
+  PerformanceAddSmIntOctalRoute: typeof PerformanceAddSmIntOctalRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -685,8 +749,11 @@ const rootRouteChildren: RootRouteChildren = {
   SqrtRoute: SqrtRoute,
   SubRoute: SubRoute,
   ToBaseRoute: ToBaseRoute,
+  PerformanceAddSmFloatDecimalRoute: PerformanceAddSmFloatDecimalRoute,
+  PerformanceAddSmIntBinaryRoute: PerformanceAddSmIntBinaryRoute,
   PerformanceAddSmIntDecimalRoute: PerformanceAddSmIntDecimalRoute,
   PerformanceAddSmIntHexRoute: PerformanceAddSmIntHexRoute,
+  PerformanceAddSmIntOctalRoute: PerformanceAddSmIntOctalRoute,
 }
 
 export const routeTree = rootRoute
@@ -726,8 +793,11 @@ export const routeTree = rootRoute
         "/sqrt",
         "/sub",
         "/toBase",
+        "/performance/add/sm/float/decimal",
+        "/performance/add/sm/int/binary",
         "/performance/add/sm/int/decimal",
-        "/performance/add/sm/int/hex"
+        "/performance/add/sm/int/hex",
+        "/performance/add/sm/int/octal"
       ]
     },
     "/": {
@@ -811,11 +881,20 @@ export const routeTree = rootRoute
     "/toBase": {
       "filePath": "toBase.tsx"
     },
+    "/performance/add/sm/float/decimal": {
+      "filePath": "performance/add/sm/float/decimal.tsx"
+    },
+    "/performance/add/sm/int/binary": {
+      "filePath": "performance/add/sm/int/binary.tsx"
+    },
     "/performance/add/sm/int/decimal": {
       "filePath": "performance/add/sm/int/decimal.tsx"
     },
     "/performance/add/sm/int/hex": {
       "filePath": "performance/add/sm/int/hex.tsx"
+    },
+    "/performance/add/sm/int/octal": {
+      "filePath": "performance/add/sm/int/octal.tsx"
     }
   }
 }
