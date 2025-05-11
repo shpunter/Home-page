@@ -50,15 +50,14 @@
     "client/src/routeTree.gen.ts",
     "client/src/main.tsx",
     "vite.config.ts",
-    "global.d.ts",
-    "deno.json"
+    "global.d.ts"
   ],
   "deploy": {
     "project": "8bbc4e1d-c0c4-4f68-9988-5cf0453add04",
     "exclude": [
       "**/node_modules"
     ],
-    "include": [],
+    "include": ["deno.json"],
     "entrypoint": "https://deno.land/std@0.171.0/http/file_server.ts"
   },
   "scripts": {
