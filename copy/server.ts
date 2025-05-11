@@ -7,7 +7,7 @@ const app = new Hono();
 app.use(
   "/api/*",
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     allowHeaders: ["Content-Type", "Authorization"],
     exposeHeaders: ["Content-Type", "Authorization"],
@@ -40,4 +40,4 @@ app.get("/api/operations/:operation", (c) => {
   }
 });
 
-Deno.serve(app.fetch);
+export default app;

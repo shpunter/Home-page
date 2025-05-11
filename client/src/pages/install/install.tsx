@@ -1,6 +1,6 @@
-import CodeBlock from "../../UI/codeBlock/codeBlock.tsx";
+import CodeBlock from "/client/src/UI/codeBlock/codeBlock.tsx";
 
-const Installation = () => {
+const Install = () => {
   return (
     <>
       <h2>Installation</h2>
@@ -44,4 +44,4 @@ const Installation = () => {
   );
 };
 
-export default Installation;
+export default Install;

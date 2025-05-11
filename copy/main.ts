@@ -2,6 +2,7 @@ import {
   serveDir,
   serveFile,
 } from "https://deno.land/std@0.224.0/http/file_server.ts";
+import app from "./server.ts";
 
 const PORT = Number(Deno.env.get("PORT")) || 3000;
 
@@ -29,3 +30,4 @@ async function handler(req: Request): Promise<Response> {
 
 // Start the server
 Deno.serve({ port: PORT }, handler);
+Deno.serve({ port: 8000 }, app.fetch);

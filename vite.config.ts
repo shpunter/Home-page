@@ -12,7 +12,7 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
-    TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
+    // TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
     react(),
     deno(),
   ],
