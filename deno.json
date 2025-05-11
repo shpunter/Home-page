@@ -50,7 +50,8 @@
     "client/src/routeTree.gen.ts",
     "client/src/main.tsx",
     "vite.config.ts",
-    "global.d.ts"
+    "global.d.ts",
+    "deno.json"
   ],
   "deploy": {
     "project": "8bbc4e1d-c0c4-4f68-9988-5cf0453add04",
