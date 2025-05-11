@@ -42,6 +42,6 @@ jobs:
         with:
           project: "numio"
           entrypoint: "./main.ts"
-          root: "./client/dist"
+          root: "./dist"
           
           
