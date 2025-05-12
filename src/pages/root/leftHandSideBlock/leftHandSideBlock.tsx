@@ -224,7 +224,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
 
       <Link
         to="/performance"
-        search={{ base: "decimal", fn: "add", type: "int" }}
+        search={{ base: "decimal", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
       >
@@ -232,7 +232,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
       </Link>
       <Link
         to="/performance"
-        search={{ base: "hex", fn: "add", type: "int" }}
+        search={{ base: "hex", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
       >
@@ -240,7 +240,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
       </Link>
       <Link
         to="/performance"
-        search={{ base: "octal", fn: "add", type: "int" }}
+        search={{ base: "octal", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
       >
@@ -248,7 +248,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
       </Link>
       <Link
         to="/performance"
-        search={{ base: "binary", fn: "add", type: "int" }}
+        search={{ base: "binary", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
       >
@@ -256,7 +256,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
       </Link>
       <Link
         to="/performance"
-        search={{ base: "decimal", fn: "add", type: "float" }}
+        search={{ base: "decimal", fn: "add", type: "float", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
       >

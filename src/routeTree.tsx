@@ -34,9 +34,7 @@ const Abs = lazy(() => import("/src/pages/abs/abs.tsx"));
 const ToBase = lazy(() => import("/src/pages/toBase/toBase.tsx"));
 const IsHex = lazy(() => import("/src/pages/isHex/isHex.tsx"));
 const IsBinary = lazy(() => import("/src/pages/isBinary/isBinary.tsx"));
-const IsDecimal = lazy(() =>
-  import("/src/pages/isDecimal/isDecimal.tsx")
-);
+const IsDecimal = lazy(() => import("/src/pages/isDecimal/isDecimal.tsx"));
 const IsOctal = lazy(() => import("/src/pages/isOctal/isOctal.tsx"));
 const IsNumber = lazy(() => import("/src/pages/isNumber/isNumber.tsx"));
 
@@ -314,22 +312,26 @@ const isNumberRoute = createRoute({
   ),
 });
 
-const BASE = ["binary", "octal", "decimal", "hex"];
-const FN = ["add"];
-const TYPE = ["int", "float"];
+const BASE = ["binary", "octal", "decimal", "hex"] as const;
+const FN = ["add"] as const;
+const TYPE = ["int", "float"] as const;
+const REPEAT = [10, 1000, "1M", "10M"] as const;
 
 const performanceRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/performance",
   validateSearch: (search: PerformanceSearch): PerformanceSearch => {
-    const isFnValid = FN.indexOf(search?.fn as string) > -1;
-    const isBaseValid = BASE.indexOf(search?.base as string) > -1;
-    const isTypeValid = TYPE.indexOf(search?.type as string) > -1;
+    const isFnValid = FN.indexOf(search?.fn) > -1;
+    const isBaseValid = BASE.indexOf(search?.base) > -1;
+    const isTypeValid = TYPE.indexOf(search?.type) > -1;
+    const isRepeatValid = REPEAT.indexOf(search?.repeat) > -1;
+
 
     return {
       fn: isFnValid ? search.fn as typeof FN[number] : "add",
       base: isBaseValid ? search.base as typeof BASE[number] : "decimal",
       type: isTypeValid ? search.type as typeof TYPE[number] : "int",
+      repeat: isRepeatValid ? search.repeat as typeof REPEAT[number] : 1000,
     };
   },
   component: () => {
@@ -372,8 +374,9 @@ export const routeTree = rootRoute.addChildren([
   isNumberRoute,
 ]);
 
-type PerformanceSearch = {
+export type PerformanceSearch = {
   base: typeof BASE[number];
   fn: typeof FN[number];
   type: typeof TYPE[number];
+  repeat: typeof REPEAT[number];
 };
