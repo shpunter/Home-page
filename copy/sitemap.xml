@@ -109,23 +109,20 @@
     <lastmod>2025-05-08</lastmod>
   </url>  
   <url>
-    <loc>https://numio.deno.dev/performance/add/sm/int/decimal</loc>
-    <lastmod>2025-05-11</lastmod>
+    <loc>https://numio.deno.dev/benchmark/sm/int/decimal/10</loc>
+    <lastmod>2025-05-13</lastmod>
   </url> 
   <url>
-    <loc>https://numio.deno.dev/performance/add/sm/int/hex</loc>
-    <lastmod>2025-05-11</lastmod>
+    <loc>https://numio.deno.dev/benchmark/sm/int/hex/1000</loc>
+    <lastmod>2025-05-13</lastmod>
   </url>    
   <url>
-    <loc>https://numio.deno.dev/performance/add/sm/int/isBinary</loc>
-    <lastmod>2025-05-11</lastmod>
+    <loc>https://numio.deno.dev/benchmark/sm/int/binary/1M</loc>
+    <lastmod>2025-05-13</lastmod>
   </url> 
   <url>
-    <loc>https://numio.deno.dev/performance/add/sm/int/octal</loc>
-    <lastmod>2025-05-11</lastmod>
+    <loc>https://numio.deno.dev/benchmark/sm/int/octal10M</loc>
+    <lastmod>2025-05-13</lastmod>
   </url> 
-  <url>
-    <loc>https://numio.deno.dev/performance/add/sm/int/decimal</loc>
-    <lastmod>2025-05-11</lastmod>
-  </url> 
+
 </urlset>

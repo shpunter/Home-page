@@ -223,7 +223,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
       </Link>
 
       <Link
-        to="/performance"
+        to="/benchmark"
         search={{ base: "decimal", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
@@ -231,7 +231,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
         perf int decimal
       </Link>
       <Link
-        to="/performance"
+        to="/benchmark"
         search={{ base: "hex", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
@@ -239,7 +239,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
         perf int hex
       </Link>
       <Link
-        to="/performance"
+        to="/benchmark"
         search={{ base: "octal", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
@@ -247,20 +247,12 @@ const LeftHandSideBlock = ({ className }: Props) => {
         perf int octal
       </Link>
       <Link
-        to="/performance"
+        to="/benchmark"
         search={{ base: "binary", fn: "add", type: "int", repeat: 1000 }}
         activeProps={{ className: css.active }}
         className={css.link}
       >
         perf int binary
-      </Link>
-      <Link
-        to="/performance"
-        search={{ base: "decimal", fn: "add", type: "float", repeat: 1000 }}
-        activeProps={{ className: css.active }}
-        className={css.link}
-      >
-        perf float
       </Link>
     </Menu>
   );

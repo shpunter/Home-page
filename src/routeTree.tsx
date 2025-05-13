@@ -5,9 +5,7 @@ import DocSkeleton from "/src/UI/skeleton/docSkeleton/docSkeleton.tsx";
 
 const Install = lazy(() => import("/src/pages/install/install.tsx"));
 const Home = lazy(() => import("/src/pages/home/home.tsx"));
-const Performance = lazy(() =>
-  import("/src/pages/performance/performance.tsx")
-);
+const Performance = lazy(() => import("/src/pages/benchmark/benchmark.tsx"));
 const Add = lazy(() => import("/src/pages/add/add.tsx"));
 const Sub = lazy(() => import("/src/pages/sub/sub.tsx"));
 const Div = lazy(() => import("/src/pages/div/div.tsx"));
@@ -319,13 +317,12 @@ const REPEAT = [10, 1000, "1M", "10M"] as const;
 
 const performanceRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/performance",
-  validateSearch: (search: PerformanceSearch): PerformanceSearch => {
+  path: "/benchmark",
+  validateSearch: (search: BenchmarkSearch): BenchmarkSearch => {
     const isFnValid = FN.indexOf(search?.fn) > -1;
     const isBaseValid = BASE.indexOf(search?.base) > -1;
     const isTypeValid = TYPE.indexOf(search?.type) > -1;
     const isRepeatValid = REPEAT.indexOf(search?.repeat) > -1;
-
 
     return {
       fn: isFnValid ? search.fn as typeof FN[number] : "add",
@@ -374,7 +371,7 @@ export const routeTree = rootRoute.addChildren([
   isNumberRoute,
 ]);
 
-export type PerformanceSearch = {
+export type BenchmarkSearch = {
   base: typeof BASE[number];
   fn: typeof FN[number];
   type: typeof TYPE[number];

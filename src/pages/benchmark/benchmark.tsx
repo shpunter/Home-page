@@ -1,11 +1,11 @@
 import { useSearch } from "@tanstack/react-router";
-import { useGetTypes } from "/src/pages/performance/hook/fetch.tsx";
+import { useGetTypes } from "/src/pages/benchmark/hook/fetch.tsx";
 import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
-import css from "/src/pages/performance/performance.module.css";
+import css from "/src/pages/benchmark/benchmark.module.css";
 import { toBase } from "@numio/bigmath";
 
-const Performance = () => {
-  const { base, fn, type, repeat } = useSearch({ from: "/performance" });
+const Benchmark = () => {
+  const { base, fn, type, repeat } = useSearch({ from: "/benchmark" });
   const { data } = useGetTypes({ base, fn, type, repeat });
 
   const baseMap = {
@@ -88,4 +88,4 @@ Deno.bench("BigNumber, array${repeat}", () => {
   );
 };
 
-export default Performance;
+export default Benchmark;
