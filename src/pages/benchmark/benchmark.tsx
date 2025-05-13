@@ -25,7 +25,7 @@ const Benchmark = () => {
   } as const;
 
   const repeatAsNum = repeatMap[repeat];
-  const element = toBase({ value: data.value, toBase: baseMap[base] });
+  const element = toBase({ value: "999", toBase: baseMap[base] });
 
   const optRepeat = [
     { label: "10", value: "1D" },
