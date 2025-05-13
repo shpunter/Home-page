@@ -313,7 +313,7 @@ const isNumberRoute = createRoute({
 const BASE = ["binary", "octal", "decimal", "hex"] as const;
 const FN = ["add"] as const;
 const TYPE = ["int", "float"] as const;
-const REPEAT = [10, 1000, "1M", "10M"] as const;
+const REPEAT = ["1D", "1K", "1M", "10M"] as const;
 
 const performanceRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -328,7 +328,7 @@ const performanceRoute = createRoute({
       fn: isFnValid ? search.fn as typeof FN[number] : "add",
       base: isBaseValid ? search.base as typeof BASE[number] : "decimal",
       type: isTypeValid ? search.type as typeof TYPE[number] : "int",
-      repeat: isRepeatValid ? search.repeat as typeof REPEAT[number] : 1000,
+      repeat: isRepeatValid ? search.repeat as typeof REPEAT[number] : "1K",
     };
   },
   component: () => {

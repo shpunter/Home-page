@@ -1,12 +1,14 @@
-import { useSearch } from "@tanstack/react-router";
 import { useGetTypes } from "/src/pages/benchmark/hook/fetch.tsx";
 import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
+import Select from "/src/UI/select/select.tsx";
 import css from "/src/pages/benchmark/benchmark.module.css";
 import { toBase } from "@numio/bigmath";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 
 const Benchmark = () => {
   const { base, fn, type, repeat } = useSearch({ from: "/benchmark" });
   const { data } = useGetTypes({ base, fn, type, repeat });
+  const navigate = useNavigate({ from: "/benchmark" });
 
   const baseMap = {
     hex: 16,
@@ -15,18 +17,42 @@ const Benchmark = () => {
     binary: 2,
   } as const;
 
+  const repeatMap = {
+    "1D": 10,
+    "1K": 1000,
+    "1M": 1000000,
+    "10M": 10000000,
+  } as const;
+
+  const repeatAsNum = repeatMap[repeat];
   const element = toBase({ value: data.value, toBase: baseMap[base] });
+
+  const optRepeat = [
+    { label: "10", value: "1D" },
+    { label: "1000", value: "1K" },
+    { label: "1 000 000", value: "1M" },
+    { label: "10 000 000", value: "10M" },
+  ];
+
+  const onChange = ({ value }: { value: string }) => {
+    navigate({
+      search: (prev) => {
+        return { ...prev, repeat: value };
+      },
+    });
+  };
 
   return (
     <div className="performance-comparison">
-      {/* <select>
-        <option value="10">10</option>
-        <option value="1000">1000</option>
-        <option value="1000000">1 000 000</option>
-        <option value="10000000">10 000 000</option>
-      </select> */}
+      <Select
+        options={optRepeat}
+        selected={repeat}
+        onChange={onChange}
+      />
 
-      <h1 className={css.capitalize}>Performance: Small Integer {base} Addition</h1>
+      <h1 className={css.capitalize}>
+        Performance: Small Integer {base} Addition
+      </h1>
       <p>
         Exploring the performance of adding numbers (small integer{" "}
         <code>{element}</code>) using <code>@numio/bigmath</code> vs{" "}
@@ -40,21 +66,21 @@ const Benchmark = () => {
         Runtime | Deno 2.3.1 (x86_64-unknown-linux-gnu)
       </code>
 
-      <h3 className={css["mark-down"]}>Set up: {repeat} items</h3>
+      <h3 className={css["mark-down"]}>Set up: {repeatAsNum} items</h3>
       <CodeBlock language="javascript">
         {`// Set up
 const binary = "${element}";
-const array${repeat} = Array(${repeat}).fill(binary);
+const array${repeatAsNum} = Array(${repeatAsNum}).fill(binary);
 
-Deno.bench("@numio/bigmath, array${repeat}", () => {
-  add(array${repeat});
+Deno.bench("@numio/bigmath, array${repeatAsNum}", () => {
+  add(array${repeatAsNum});
 });
 
-Deno.bench("BigNumber, array${repeat}", () => {
-  let sum = BigNumber(array${repeat}[0]);
+Deno.bench("BigNumber, array${repeatAsNum}", () => {
+  let sum = BigNumber(array${repeatAsNum}[0]);
 
-  for (let i = 1; i < array${repeat}.length; i++) {
-    sum = sum.plus(array${repeat}[i]);
+  for (let i = 1; i < array${repeatAsNum}.length; i++) {
+    sum = sum.plus(array${repeatAsNum}[i]);
   }
 });
 `}

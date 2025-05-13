@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import css from "./leftHandSideBlock.module.css";
 
 const LeftHandSideBlock = ({ className }: Props) => {
+  
   return (
     <Menu className={className}>
       <Link
@@ -221,38 +222,14 @@ const LeftHandSideBlock = ({ className }: Props) => {
       >
         isNumber
       </Link>
-
       <Link
         to="/benchmark"
-        search={{ base: "decimal", fn: "add", type: "int", repeat: 1000 }}
+        search={{ base: "binary", fn: "add", type: "int", repeat: "1M" }}
         activeProps={{ className: css.active }}
+        activeOptions={{ includeSearch: false }}
         className={css.link}
       >
-        perf int decimal
-      </Link>
-      <Link
-        to="/benchmark"
-        search={{ base: "hex", fn: "add", type: "int", repeat: 1000 }}
-        activeProps={{ className: css.active }}
-        className={css.link}
-      >
-        perf int hex
-      </Link>
-      <Link
-        to="/benchmark"
-        search={{ base: "octal", fn: "add", type: "int", repeat: 1000 }}
-        activeProps={{ className: css.active }}
-        className={css.link}
-      >
-        perf int octal
-      </Link>
-      <Link
-        to="/benchmark"
-        search={{ base: "binary", fn: "add", type: "int", repeat: 1000 }}
-        activeProps={{ className: css.active }}
-        className={css.link}
-      >
-        perf int binary
+        Benchmark
       </Link>
     </Menu>
   );
