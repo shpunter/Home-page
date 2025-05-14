@@ -2,7 +2,7 @@ import { useGetTypes } from "/src/pages/benchmark/hook/fetch.tsx";
 import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
 import Select from "/src/UI/select/select.tsx";
 import css from "/src/pages/benchmark/benchmark.module.css";
-import { toBase } from "@numio/bigmath";
+import { div, toBase } from "@numio/bigmath";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 
 const Benchmark = () => {
@@ -41,13 +41,14 @@ const Benchmark = () => {
     { label: "decimal", value: "decimal" },
   ];
 
-  const onChange = (key: "repeat" | "base") => ({ value }: { value: string }) => {
-    navigate({
-      search: (prev) => {
-        return { ...prev, [key]: value };
-      },
-    });
-  };
+  const onChange =
+    (key: "repeat" | "base") => ({ value }: { value: string }) => {
+      navigate({
+        search: (prev) => {
+          return { ...prev, [key]: value };
+        },
+      });
+    };
 
   return (
     <div className="performance-comparison">
@@ -100,7 +101,12 @@ Deno.bench("BigNumber, array${repeatAsNum}", () => {
 });
 `}
       </CodeBlock>
-      <h3>Benchmark Results</h3>
+      <h3>
+        Benchmark Results: numio x{div([
+          data.result[0][1].replaceAll(",", "").replaceAll(" ", ""),
+          data.result[1][1].replaceAll(",", "").replaceAll(" ", ""),
+        ], 0)} faster
+      </h3>
 
       <div className={css["benchmark-result"]}>
         <div>benchmark</div>
