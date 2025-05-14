@@ -1,6 +1,6 @@
 import { SyntheticEvent } from "react";
 
-const Select = ({ options, selected, onChange }: Props) => {
+const Select = ({ options, selected, onChange, label }: Props) => {
   const onChangeInner = (event: SyntheticEvent) => {
     onChange?.({
       event,
@@ -10,7 +10,7 @@ const Select = ({ options, selected, onChange }: Props) => {
 
   return (
     <label>
-      Pick number of operations:
+      {label}
       <select
         onChange={onChangeInner}
         name="Number of operations"
@@ -32,10 +32,11 @@ export default Select;
 
 type Props = {
   options: Option[];
+  label: string;
   selected?: Option["value"];
   onChange?: (
     { value, event }: { value: string; event: SyntheticEvent },
   ) => void;
 };
 
-type Option = { label: string; value: string };
+type Option = { label: string; value: string | number };

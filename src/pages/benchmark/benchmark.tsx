@@ -34,10 +34,17 @@ const Benchmark = () => {
     { label: "10 000 000", value: "10M" },
   ];
 
-  const onChange = ({ value }: { value: string }) => {
+  const optBase = [
+    { label: "hex 0x", value: "hex" },
+    { label: "octal 0o", value: "octal" },
+    { label: "binary 0b", value: "binary" },
+    { label: "decimal", value: "decimal" },
+  ];
+
+  const onChange = (key: "repeat" | "base") => ({ value }: { value: string }) => {
     navigate({
       search: (prev) => {
-        return { ...prev, repeat: value };
+        return { ...prev, [key]: value };
       },
     });
   };
@@ -45,9 +52,17 @@ const Benchmark = () => {
   return (
     <div className="performance-comparison">
       <Select
+        label="Repeat:"
         options={optRepeat}
         selected={repeat}
-        onChange={onChange}
+        onChange={onChange("repeat")}
+      />
+
+      <Select
+        label="Base:"
+        options={optBase}
+        selected={base}
+        onChange={onChange("base")}
       />
 
       <h1 className={css.capitalize}>

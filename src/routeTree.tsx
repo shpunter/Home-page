@@ -318,17 +318,17 @@ const REPEAT = ["1D", "1K", "1M", "10M"] as const;
 const performanceRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/benchmark",
-  validateSearch: (search: BenchmarkSearch): BenchmarkSearch => {
+  validateSearch: (search: Record<string, never>): BenchmarkSearch => {
     const isFnValid = FN.indexOf(search?.fn) > -1;
     const isBaseValid = BASE.indexOf(search?.base) > -1;
     const isTypeValid = TYPE.indexOf(search?.type) > -1;
     const isRepeatValid = REPEAT.indexOf(search?.repeat) > -1;
 
     return {
-      fn: isFnValid ? search.fn as typeof FN[number] : "add",
-      base: isBaseValid ? search.base as typeof BASE[number] : "decimal",
-      type: isTypeValid ? search.type as typeof TYPE[number] : "int",
-      repeat: isRepeatValid ? search.repeat as typeof REPEAT[number] : "1K",
+      fn: isFnValid ? search.fn : "add",
+      base: isBaseValid ? search.base : "decimal",
+      type: isTypeValid ? search.type : "int",
+      repeat: isRepeatValid ? search.repeat : "1K",
     };
   },
   component: () => {
