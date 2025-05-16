@@ -1,4 +1,4 @@
-import { div, toBase } from "@numio/bigmath";
+import { div, isLeftGreater, toBase } from "@numio/bigmath";
 import { useSearch } from "@tanstack/react-router";
 
 import { useGetTypes } from "/src/pages/benchmark/hook/fetch.tsx";
@@ -26,6 +26,8 @@ const Benchmark = () => {
 
   const repeatAsNum = repeatMap[repeat];
   const element = toBase({ value: "999", toBase: baseMap[base] });
+  const num1 = data.result[0][2].replaceAll(",", "").replaceAll(" ", "");
+  const num2 = data.result[1][2].replaceAll(",", "").replaceAll(" ", "");
 
   return (
     <div className="performance-comparison">
@@ -66,10 +68,9 @@ Deno.bench("BigNumber, array${repeatAsNum}", () => {
 `}
       </CodeBlock>
       <h3>
-        Benchmark Results: numio x{div([
-          data.result[0][1].replaceAll(",", "").replaceAll(" ", ""),
-          data.result[1][1].replaceAll(",", "").replaceAll(" ", ""),
-        ], 0)} faster
+        Benchmark Results: {isLeftGreater({ left: num1, right: num2 })
+          ? `numio x${div([num1, num2], 1)} faster`
+          : `BigNumber.js x${div([num1, num2], 1)} faster`}
       </h3>
 
       <div className={css["benchmark-result"]}>
@@ -88,19 +89,19 @@ Deno.bench("BigNumber, array${repeatAsNum}", () => {
         <div>-------------------</div>
         <div>-------------------</div>
         <div>{data.result[0][0]}</div>
-        <div>{data.result[0][3]}</div>
         <div>{data.result[0][1]}</div>
         <div>{data.result[0][2]}</div>
-        <div>{data.result[0][6]}</div>
+        <div>{data.result[0][3]}</div>
         <div>{data.result[0][4]}</div>
         <div>{data.result[0][5]}</div>
+        <div>{data.result[0][6]}</div>
         <div>{data.result[1][0]}</div>
-        <div>{data.result[1][3]}</div>
         <div>{data.result[1][1]}</div>
         <div>{data.result[1][2]}</div>
-        <div>{data.result[1][6]}</div>
+        <div>{data.result[1][3]}</div>
         <div>{data.result[1][4]}</div>
         <div>{data.result[1][5]}</div>
+        <div>{data.result[1][6]}</div>
       </div>
     </div>
   );
