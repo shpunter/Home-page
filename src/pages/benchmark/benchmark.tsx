@@ -1,14 +1,14 @@
+import { div, toBase } from "@numio/bigmath";
+import { useSearch } from "@tanstack/react-router";
+
 import { useGetTypes } from "/src/pages/benchmark/hook/fetch.tsx";
 import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
-import Select from "/src/UI/select/select.tsx";
 import css from "/src/pages/benchmark/benchmark.module.css";
-import { div, toBase } from "@numio/bigmath";
-import { useNavigate, useSearch } from "@tanstack/react-router";
+import Header from "/src/pages/benchmark/header/header.tsx";
 
 const Benchmark = () => {
   const { base, fn, type, repeat } = useSearch({ from: "/benchmark" });
   const { data } = useGetTypes({ base, fn, type, repeat });
-  const navigate = useNavigate({ from: "/benchmark" });
 
   const baseMap = {
     hex: 16,
@@ -27,45 +27,9 @@ const Benchmark = () => {
   const repeatAsNum = repeatMap[repeat];
   const element = toBase({ value: "999", toBase: baseMap[base] });
 
-  const optRepeat = [
-    { label: "10", value: "1D" },
-    { label: "1000", value: "1K" },
-    { label: "1 000 000", value: "1M" },
-    { label: "10 000 000", value: "10M" },
-  ];
-
-  const optBase = [
-    { label: "hex 0x", value: "hex" },
-    { label: "octal 0o", value: "octal" },
-    { label: "binary 0b", value: "binary" },
-    { label: "decimal", value: "decimal" },
-  ];
-
-  const onChange =
-    (key: "repeat" | "base") => ({ value }: { value: string }) => {
-      navigate({
-        search: (prev) => {
-          return { ...prev, [key]: value };
-        },
-      });
-    };
-
   return (
     <div className="performance-comparison">
-      <Select
-        label="Repeat:"
-        options={optRepeat}
-        selected={repeat}
-        onChange={onChange("repeat")}
-      />
-
-      <Select
-        label="Base:"
-        options={optBase}
-        selected={base}
-        onChange={onChange("base")}
-      />
-
+      <Header />
       <h1 className={css.capitalize}>
         Performance: Small Integer {base} Addition
       </h1>

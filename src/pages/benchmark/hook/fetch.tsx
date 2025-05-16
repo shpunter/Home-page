@@ -1,4 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
+
 import { BenchmarkSearch } from "/src/routeTree.tsx";
 import { BASE_URL } from "/src/const .ts";
 
