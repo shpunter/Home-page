@@ -14,8 +14,8 @@ async function handler(req: Request): Promise<Response> {
     enableCors: true, // Enable CORS for static files
     quiet: true, // Suppress logging for a cleaner output
     headers: [
-      "Cache-Control: max-age=2592000", // 30d
-      "Strict-Transport-Security: max-age=3600; includeSubDomains",
+      "Cache-Control: max-age=0",
+      "Strict-Transport-Security: max-age=0; includeSubDomains",
     ],
   });
 

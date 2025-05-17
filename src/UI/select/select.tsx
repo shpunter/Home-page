@@ -1,5 +1,7 @@
 import { SyntheticEvent } from "react";
 
+import css from "/src/UI/select/select.module.css";
+
 const Select = ({ options, selected, onChange, label }: Props) => {
   const onChangeInner = (event: SyntheticEvent) => {
     onChange?.({
@@ -12,8 +14,9 @@ const Select = ({ options, selected, onChange, label }: Props) => {
     <label>
       {label}
       <select
+        className={css.select}
         onChange={onChangeInner}
-        name="Number of operations"
+        name={label}
         defaultValue={selected}
       >
         {options.map(({ label, value }) => {

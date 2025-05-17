@@ -2,11 +2,13 @@ import { useSearch } from "@tanstack/react-router";
 import { useNavigate } from "@tanstack/react-router";
 
 import Select from "/src/UI/select/select.tsx";
+
 import { OnChange } from "./header.type.ts";
+import css from "./header.module.css";
 
 const Header = () => {
   const navigate = useNavigate({ from: "/benchmark" });
-  const { base, repeat } = useSearch({ from: "/benchmark" });
+  const { base, repeat, size } = useSearch({ from: "/benchmark" });
 
   const optRepeat = [
     { label: "10", value: "1D" },
@@ -22,6 +24,11 @@ const Header = () => {
     { label: "decimal", value: "decimal" },
   ];
 
+  const optSize = [
+    {label: "big", value: "lg"},
+    {label: "small", value: "sm"},
+  ]
+
   const onChange: OnChange = (key) => ({ value }) => {
     navigate({
       search: (prev) => {
@@ -31,7 +38,7 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div className={css.header}>
       <Select
         label="Repeat:"
         options={optRepeat}
@@ -45,7 +52,14 @@ const Header = () => {
         selected={base}
         onChange={onChange("base")}
       />
-    </>
+
+      <Select
+        label="Size:"
+        options={optSize}
+        selected={size}
+        onChange={onChange("size")}
+      />
+    </div>
   );
 };
 

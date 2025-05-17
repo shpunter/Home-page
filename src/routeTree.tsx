@@ -314,18 +314,21 @@ const BASE = ["binary", "octal", "decimal", "hex"] as const;
 const FN = ["add"] as const;
 const TYPE = ["int", "float"] as const;
 const REPEAT = ["1D", "1K", "1M", "10M"] as const;
+const SIZE = ["sm", "lg"] as const;
 
 const performanceRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/benchmark",
   validateSearch: (search: Record<string, never>): BenchmarkSearch => {
     const isFnValid = FN.indexOf(search?.fn) > -1;
+    const isSizeValid = SIZE.indexOf(search?.size) > -1;
     const isBaseValid = BASE.indexOf(search?.base) > -1;
     const isTypeValid = TYPE.indexOf(search?.type) > -1;
     const isRepeatValid = REPEAT.indexOf(search?.repeat) > -1;
 
     return {
       fn: isFnValid ? search.fn : "add",
+      size: isSizeValid ? search.size : "sm",
       base: isBaseValid ? search.base : "decimal",
       type: isTypeValid ? search.type : "int",
       repeat: isRepeatValid ? search.repeat : "1K",
@@ -373,6 +376,7 @@ export const routeTree = rootRoute.addChildren([
 
 export type BenchmarkSearch = {
   base: typeof BASE[number];
+  size: typeof SIZE[number];
   fn: typeof FN[number];
   type: typeof TYPE[number];
   repeat: typeof REPEAT[number];

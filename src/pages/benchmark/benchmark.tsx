@@ -1,4 +1,4 @@
-import { div, isLeftGreater, toBase } from "@numio/bigmath";
+import { div, isEqual, isLeftGreater, toBase } from "@numio/bigmath";
 import { useSearch } from "@tanstack/react-router";
 
 import { useGetTypes } from "/src/pages/benchmark/hook/fetch.tsx";
@@ -7,8 +7,8 @@ import css from "/src/pages/benchmark/benchmark.module.css";
 import Header from "/src/pages/benchmark/header/header.tsx";
 
 const Benchmark = () => {
-  const { base, fn, type, repeat } = useSearch({ from: "/benchmark" });
-  const { data } = useGetTypes({ base, fn, type, repeat });
+  const { base, size, fn, type, repeat } = useSearch({ from: "/benchmark" });
+  const { data } = useGetTypes({ base, size, fn, type, repeat });
 
   const baseMap = {
     hex: 16,
@@ -24,8 +24,14 @@ const Benchmark = () => {
     "10M": 10000000,
   } as const;
 
+  const valueMap = {
+    "sm": "999",
+    "lg":
+      "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+  };
+
   const repeatAsNum = repeatMap[repeat];
-  const element = toBase({ value: "999", toBase: baseMap[base] });
+  const element = toBase({ value: valueMap[size], toBase: baseMap[base] });
   const num1 = data.result[0][2].replaceAll(",", "").replaceAll(" ", "");
   const num2 = data.result[1][2].replaceAll(",", "").replaceAll(" ", "");
 
@@ -33,12 +39,13 @@ const Benchmark = () => {
     <div className="performance-comparison">
       <Header />
       <h1 className={css.capitalize}>
-        Performance: Small Integer {base} Addition
+        Performance: {size === "sm" ? "Small" : "Big"} Integer {base} Addition
       </h1>
       <p>
-        Exploring the performance of adding numbers (small integer{" "}
-        <code>{element}</code>) using <code>@numio/bigmath</code> vs{" "}
-        <code>BigNumber.js</code>.
+        Exploring the performance of adding numbers ({size === "sm"
+          ? "small"
+          : "big"} integer <code>{element}</code>) using{" "}
+        <code>@numio/bigmath</code> vs <code>BigNumber.js</code>.
       </p>
       <code>
         CPU | AMD Ryzen 7 8845HS w/ Radeon 780M Graphics
@@ -51,8 +58,8 @@ const Benchmark = () => {
       <h3 className={css["mark-down"]}>Set up: {repeatAsNum} items</h3>
       <CodeBlock language="javascript">
         {`// Set up
-const binary = "${element}";
-const array${repeatAsNum} = Array(${repeatAsNum}).fill(binary);
+const number = "${element}";
+const array${repeatAsNum} = Array(${repeatAsNum}).fill(number);
 
 Deno.bench("@numio/bigmath, array${repeatAsNum}", () => {
   add(array${repeatAsNum});
@@ -67,10 +74,12 @@ Deno.bench("BigNumber, array${repeatAsNum}", () => {
 });
 `}
       </CodeBlock>
+      {}
       <h3>
-        Benchmark Results: {isLeftGreater({ left: num1, right: num2 })
-          ? `numio x${div([num1, num2], 1)} faster`
-          : `BigNumber.js x${div([num1, num2], 1)} faster`}
+        {isEqual({ left: num2, right: "0" }) &&
+          `Benchmark Results: @numio/bigmath still works`}
+        {isLeftGreater({ left: num2, right: "0" }) &&
+          `Benchmark Results: @numio/bigmath x${div([num1, num2], 1)} faster`}
       </h3>
 
       <div className={css["benchmark-result"]}>

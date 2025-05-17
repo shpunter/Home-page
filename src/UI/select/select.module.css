@@ -1,0 +1,8 @@
+.select {
+  padding: .2rem .4rem;
+  border-radius: 0.2rem;
+  border: solid rgb(143, 143, 143) .1rem;
+  margin: .4rem;
+
+  font-size: .9em;
+}
