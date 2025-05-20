@@ -23,8 +23,8 @@ const Home = () => {
         <li>
           <strong>Handle Numbers of Any Size:</strong>{" "}
           Perform calculations on integers and decimals of virtually unlimited
-          length, without the risk of JavaScript's{" "}
-          <code>Number</code> limitations.
+          length, without the risk of JavaScript's <code>Number</code>{" "}
+          limitations.
         </li>
         <li>
           <strong>Eliminate Precision Loss:</strong>{" "}
