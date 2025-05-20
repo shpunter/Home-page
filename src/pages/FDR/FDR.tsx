@@ -1,4 +1,3 @@
-import { FDR } from "@numio/bigmath";
 import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
 
 const FDRDoc = () => {
