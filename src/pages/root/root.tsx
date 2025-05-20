@@ -3,8 +3,6 @@ import LeftHandSideBlock from "/src/pages/root/leftHandSideBlock/leftHandSideBlo
 import css from "./root.module.css";
 
 const Root = () => {
-
-
   return (
     <div className={css.grid}>
       <LeftHandSideBlock className={css.left} />

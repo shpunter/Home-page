@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import css from "./leftHandSideBlock.module.css";
 
 const LeftHandSideBlock = ({ className }: Props) => {
-  
   return (
     <Menu className={className}>
       <Link
@@ -151,6 +150,14 @@ const LeftHandSideBlock = ({ className }: Props) => {
         IQR
       </Link>
       <Link
+        to="/fdr"
+        activeProps={{ className: css.active }}
+        className={css.link}
+        key="/fdr"
+      >
+        FDR
+      </Link>
+      <Link
         to="/sqrt"
         activeProps={{ className: css.active }}
         className={css.link}
@@ -224,7 +231,7 @@ const LeftHandSideBlock = ({ className }: Props) => {
       </Link>
       <Link
         to="/benchmark"
-        search={{ base: "binary", fn: "add", type: "int", repeat: "1M" }}
+        search={{ base: "binary", fn: "add", type: "int", repeat: "1M", size: "sm" }}
         activeProps={{ className: css.active }}
         activeOptions={{ includeSearch: false }}
         className={css.link}

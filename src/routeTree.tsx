@@ -35,6 +35,7 @@ const IsBinary = lazy(() => import("/src/pages/isBinary/isBinary.tsx"));
 const IsDecimal = lazy(() => import("/src/pages/isDecimal/isDecimal.tsx"));
 const IsOctal = lazy(() => import("/src/pages/isOctal/isOctal.tsx"));
 const IsNumber = lazy(() => import("/src/pages/isNumber/isNumber.tsx"));
+const FDR = lazy(() => import("/src/pages/FDR/FDR.tsx"));
 
 const rootRoute = createRootRoute({
   component: Root,
@@ -210,6 +211,16 @@ const madRoute = createRoute({
   ),
 });
 
+const fdrRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/fdr",
+  component: () => (
+    <Suspense fallback={<DocSkeleton />}>
+      <FDR />
+    </Suspense>
+  ),
+});
+
 const iqrRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/iqr",
@@ -344,6 +355,7 @@ const performanceRoute = createRoute({
 });
 
 export const routeTree = rootRoute.addChildren([
+  fdrRoute,
   indexRoute,
   installRoute,
   performanceRoute,

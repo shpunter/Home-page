@@ -1,4 +1,3 @@
-import { MAD } from "@numio/bigmath";
 import CodeBlock from "/src/UI/codeBlock/codeBlock.tsx";
 
 const MADDoc = () => {
