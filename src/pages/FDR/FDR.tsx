@@ -4,11 +4,11 @@ const FDRDoc = () => {
   return (
     <>
       <h2>
-        <code>FDR</code> Function
+        <code>FDR (Freedman-Diaconis Rule)</code> Function
       </h2>
       <p>
         The <code>FDR</code> function from the <code>@numio/bigmath</code>{" "}
-        library implements the **Freedman-Diaconis Rule** to calculate the
+        library implements the <strong>Freedman-Diaconis Rule</strong> to calculate the
         optimal bin width and number of bins for a histogram. This rule is a
         robust method for determining bin sizes, especially effective for large
         datasets and those with outliers, as it uses the Interquartile Range
@@ -33,16 +33,16 @@ const FDRDoc = () => {
           bin calculation behavior.
           <ul>
             <li>
-              <strong><code>useMadAbove</code></strong>: A `number` threshold. When the total number of data points
+              <strong><code>useMadAbove</code></strong>: A <code>number</code> threshold. When the total number of data points
               in the input <code>array</code> is less than or equal to this threshold, the
-              function will use the **Median Absolute Deviation (MAD)** instead of
+              function will use the <strong>Median Absolute Deviation (MAD)</strong> instead of
               the Interquartile Range (IQR) in its internal calculations. This is
               particularly useful for smaller datasets where MAD might provide a
               more representative measure of spread compared to IQR, leading to
-              potentially different and more appropriate binning. Set to `0` to always use IQR.
+              potentially different and more appropriate binning. Set to <code>0</code> to always use IQR.
             </li>
             <li>
-              <strong><code>maxBinNumber</code></strong>: A `number` that specifies the maximum allowable
+              <strong><code>maxBinNumber</code></strong>: A <code>number</code> that specifies the maximum allowable
               number of bins. The Freedman-Diaconis Rule can sometimes suggest a
               very large number of bins, especially for datasets with many unique
               values or high precision. This option allows you to cap the number of
@@ -99,7 +99,7 @@ const FDRDoc = () => {
         </li>
         <li>
           If the <code>useMadAbove</code> option is provided and the array length meets the
-          condition, MAD is used instead of IQR in the calculation of `h`.
+          condition, MAD is used instead of IQR in the calculation of <code>h</code>.
         </li>
         <li>
           If <code>maxBinNumber</code> is provided and the calculated <code>binNum</code> exceeds this
