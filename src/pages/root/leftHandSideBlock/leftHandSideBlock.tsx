@@ -182,6 +182,14 @@ const LeftHandSideBlock = ({ className }: Props) => {
         abs
       </Link>
       <Link
+        to="/mod"
+        activeProps={{ className: css.active }}
+        className={css.link}
+        key="/mod"
+      >
+        mod
+      </Link>
+      <Link
         to="/toBase"
         activeProps={{ className: css.active }}
         className={css.link}

@@ -29,6 +29,7 @@ const Iqr = lazy(() => import("/src/pages/IQR/IQR.tsx"));
 const Sqrt = lazy(() => import("/src/pages/sqrt/sqrt.tsx"));
 const Cbrt = lazy(() => import("/src/pages/cbrt/cbrt.tsx"));
 const Abs = lazy(() => import("/src/pages/abs/abs.tsx"));
+const Mod = lazy(() => import("/src/pages/mod/mod.tsx"));
 const ToBase = lazy(() => import("/src/pages/toBase/toBase.tsx"));
 const IsHex = lazy(() => import("/src/pages/isHex/isHex.tsx"));
 const IsBinary = lazy(() => import("/src/pages/isBinary/isBinary.tsx"));
@@ -261,6 +262,16 @@ const absRoute = createRoute({
   ),
 });
 
+const modRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/mod",
+  component: () => (
+    <Suspense fallback={<DocSkeleton />}>
+      <Mod />
+    </Suspense>
+  ),
+});
+
 const toBaseRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/toBase",
@@ -378,6 +389,7 @@ export const routeTree = rootRoute.addChildren([
   sqrtRoute,
   cbrtRoute,
   absRoute,
+  modRoute,
   toBaseRoute,
   isHexRoute,
   isBinaryRoute,
