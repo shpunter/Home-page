@@ -24,14 +24,6 @@ const ModDoc = () => {
         <li>
           <strong><code>divisor</code></strong>: A string representing the number by which to divide the dividend. This must also be provided as a string for arbitrary precision.
         </li>
-        <li>
-          <strong><code>options</code></strong> (optional): An object that allows you to customize the calculation behavior.
-          <ul>
-            <li>
-              <strong><code>precision</code></strong>: A <code>number</code> that specifies the number of decimal places to include in the result. By default, the function attempts to return the full precision of the calculated remainder. If set to <code>0</code>, the result will be an integer part of the remainder.
-            </li>
-          </ul>
-        </li>
       </ul>
 
       <h3>Return Value</h3>
