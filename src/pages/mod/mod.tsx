@@ -13,7 +13,7 @@ const ModDoc = () => {
 
       <h3>Function Signature</h3>
       <CodeBlock language="javascript">
-        {`function mod(dividend: string, divisor: string, options?: { precision?: number }): string`}
+        {`function mod(dividend: string, divisor: string): string`}
       </CodeBlock>
 
       <h3>Parameters</h3>
