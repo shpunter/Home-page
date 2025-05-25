@@ -5,7 +5,10 @@ const Home = () => {
       <p>
         Do you struggle with inaccurate calculations involving very large or
         very small numbers, or decimal numbers with high precision in
-        JavaScript? <strong>@numio/bigmath</strong>{" "}
+        JavaScript? Are you often searching for solutions to "javascript max
+        safe integer" issues, "how to represent numbers larger than 2^53 in
+        javascript", or "javascript floating point precision problems"?
+        <strong>@numio/bigmath</strong>{" "}
         is your solution! This library provides a robust set of functions for
         performing{" "}
         <strong>arbitrary-precision arithmetic</strong>, effectively overcoming
@@ -24,12 +27,14 @@ const Home = () => {
           <strong>Handle Numbers of Any Size:</strong>{" "}
           Perform calculations on integers and decimals of virtually unlimited
           length, without the risk of JavaScript's <code>Number</code>{" "}
-          limitations.
+          limitations. This is crucial when the native `Number` type falls short
+          of representing truly "big numbers" beyond its safe integer limit.
         </li>
         <li>
           <strong>Eliminate Precision Loss:</strong>{" "}
           Achieve accurate results even with numeric literals exceeding 15
           significant digits, ensuring the integrity of your calculations.
+          Forget about those frustrating "javascript number precision" issues.
         </li>
         <li>
           <strong>Precise Decimal Operations:</strong>{" "}
@@ -204,7 +209,9 @@ const Home = () => {
           {" "}
           Ensuring the reliability of your calculations when dealing with
           numbers beyond the safe integer limit or requiring more than 15
-          significant digits.
+          significant digits. If you've been looking for "javascript arbitrary
+          precision arithmetic" or "javascript large number libraries", you've
+          found a powerful solution.
         </li>
       </ul>
       <p>
@@ -217,6 +224,16 @@ const Home = () => {
       <h2>Latest Update</h2>
       <p>New Functions added:</p>
       <ul>
+        <li>
+          <code>FDR</code>{" "}
+          - Implements the Freedman-Diaconis rule for calculating the optimal
+          bin width for histograms, enhancing data visualization and analysis.
+        </li>
+        <li>
+          <code>mod</code>{" "}
+          - Computes the modulo operation, returning the remainder of a
+          division.
+        </li>
         <li>
           <code>isHex</code>{" "}
           - Checks if a string is a valid hexadecimal number (prefixed with{" "}
