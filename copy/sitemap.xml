@@ -124,5 +124,12 @@
     <loc>https://numio.deno.dev/benchmark/sm/int/octal/10M</loc>
     <lastmod>2025-05-13</lastmod>
   </url> 
-
+  <url>
+    <loc>https://numio.deno.dev/mod</loc>
+    <lastmod>2025-05-23</lastmod>
+  </url> 
+  <url>
+    <loc>https://numio.deno.dev/fdr</loc>
+    <lastmod>2025-05-23</lastmod>
+  </url> 
 </urlset>
