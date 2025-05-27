@@ -4,7 +4,7 @@
     "jsr:@std/assert@^1.0.13": "1.0.13",
     "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.5__picomatch@4.0.2",
-    "npm:@numio/bigmath@^2.4.1": "2.4.1",
+    "npm:@numio/bigmath@^2.4.2": "2.4.2",
     "npm:@tanstack/react-query@^5.75.7": "5.75.7_react@19.1.0",
     "npm:@tanstack/react-router-devtools@^1.119.1": "1.120.3_@tanstack+react-router@1.120.3__react@19.1.0__react-dom@19.1.0___react@19.1.0_react@19.1.0_react-dom@19.1.0__react@19.1.0_solid-js@1.9.6__seroval@1.3.1",
     "npm:@tanstack/react-router@^1.119.0": "1.120.3_react@19.1.0_react-dom@19.1.0__react@19.1.0",
@@ -793,8 +793,8 @@
         "fastq"
       ]
     },
-    "@numio/bigmath@2.4.1": {
-      "integrity": "sha512-PmQVN6ZTKf+8Dqc9vR700KBiHB+UBdcYgU+8xh5LbxYYAAb5QG4aOsR9b1+TwCz14IlVnYgpIwM5SmQqfjKIRw=="
+    "@numio/bigmath@2.4.2": {
+      "integrity": "sha512-xmT5rA49z4VUDGlLfiRYdkkFgrpdb7ig8Gceb5CjtMqqHpcFqP9MXPvmcjGifiyztttpc9Y847qc1Dclez8L3w=="
     },
     "@parcel/watcher-android-arm64@2.5.1": {
       "integrity": "sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==",
@@ -5183,7 +5183,7 @@
     "dependencies": [
       "jsr:@std/assert@^1.0.13",
       "npm:@deno/vite-plugin@^1.0.4",
-      "npm:@numio/bigmath@^2.4.1",
+      "npm:@numio/bigmath@^2.4.2",
       "npm:@tanstack/react-query@^5.75.7",
       "npm:@tanstack/react-router-devtools@^1.119.1",
       "npm:@tanstack/react-router@^1.119.0",
@@ -5191,7 +5191,6 @@
       "npm:@types/react@^19.1.2",
       "npm:@vitejs/plugin-react@^4.4.1",
       "npm:react-dom@^19.1.0",
-      "npm:react-ga4@^2.1.0",
       "npm:react-router-dom@^7.5.1",
       "npm:react-syntax-highlighter@^15.6.1",
       "npm:react@^19.1.0",
